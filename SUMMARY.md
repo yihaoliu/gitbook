@@ -16,4 +16,7 @@
 * [node](node/README.md)
     * [第一节](node/section1.md)
     * [第二节](node/section2.md)
+* [three](three/README.md)
+    * [第一节](three/section1.md)
+    * [第二节](three/section2.md)
 
