@@ -1,6 +1,13 @@
 # Summary
 
 * [Introduction](README.md)
+* [编辑器](IDE/sublime/README.md)
+    * [sublime](IDE/README.md)
+        * [sublimeKey](IDE/sublime/sublimeKey.md)
+        * [sublimePlug](IDE/sublime/sublimePlug.md)
+    * [atom](IDE/atom.md)
+    * [vim](IDE/vim.md)
+    * [vsCode](IDE/vsCode.md)
 * [javaScript](javaScript/README.md)
     * [获取鼠标的坐标位置](javaScript/mouse.md)
     * [premiere原理解析](javaScript/promise.md)
@@ -40,4 +47,6 @@
 * [前端面试题](jsMetting/README.md)
     * [JavaScript面试题](jsMetting/JavaScript.md)
     * [react面试](jsMetting/react.md)
+* [帮助文档](help/README.md)
+    * [Markdown](help/Markdown.md)
 
