@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>第二节 · GitBook</title>
+        <title>React-Router使用入门 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../vue/" />
+    <link rel="next" href="section3.html" />
     
     
     <link rel="prev" href="section1.html" />
@@ -107,7 +107,7 @@
                 <a href="../IDE/sublime/">
             
                     
-                    编辑器
+                    开发工具
             
                 </a>
             
@@ -200,6 +200,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.5" data-path="../IDE/Git.html">
+            
+                <a href="../IDE/Git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -255,7 +268,7 @@
                 <a href="../CSS/">
             
                     
-                    CSS
+                    开发总结
             
                 </a>
             
@@ -269,7 +282,7 @@
                 <a href="../CSS/phone.html">
             
                     
-                    手机端布局
+                    手机端开发注意事项
             
                 </a>
             
@@ -282,7 +295,7 @@
                 <a href="../CSS/section2.html">
             
                     
-                    第二节
+                    电脑桌面应用开发
             
                 </a>
             
@@ -314,7 +327,7 @@
                 <a href="section1.html">
             
                     
-                    第一节
+                    项目的搭建
             
                 </a>
             
@@ -327,7 +340,33 @@
                 <a href="section2.html">
             
                     
-                    第二节
+                    React-Router使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="section3.html">
+            
+                <a href="section3.html">
+            
+                    
+                    Redux使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="section4.html">
+            
+                <a href="section4.html">
+            
+                    
+                    Mobx使用入门
             
                 </a>
             
@@ -359,7 +398,7 @@
                 <a href="../vue/section1.html">
             
                     
-                    第一节
+                    项目的搭建
             
                 </a>
             
@@ -372,7 +411,20 @@
                 <a href="../vue/section2.html">
             
                     
-                    第二节
+                    vue-router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../vue/section3.html">
+            
+                <a href="../vue/section3.html">
+            
+                    
+                    vuex
             
                 </a>
             
@@ -404,7 +456,7 @@
                 <a href="../node/section1.html">
             
                     
-                    第一节
+                    node简单爬虫
             
                 </a>
             
@@ -417,7 +469,7 @@
                 <a href="../node/section2.html">
             
                     
-                    第二节
+                    node-express
             
                 </a>
             
@@ -816,7 +868,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >第二节</a>
+        <a href=".." >React-Router使用入门</a>
     </h1>
 </div>
 
@@ -831,7 +883,297 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7B2C;&#x4E8C;&#x8282;">&#x7B2C;&#x4E8C;&#x8282;</h1>
+                                <h1 id="react-router&#x4F7F;&#x7528;&#x6559;&#x7A0B;">React Router&#x4F7F;&#x7528;&#x6559;&#x7A0B;</h1>
+<h2 id="&#x4E00;&#x3001;&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x4E00;&#x3001;&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
+<p>React Router &#x5B89;&#x88C5;&#x547D;&#x4EE4;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code>$ npm install -S react-router
+</code></pre><p>&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x8DEF;&#x7531;&#x5668; Router &#x5C31;&#x662F;React&#x7684;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x3002;</p>
+<pre><code>import { Router } from &apos;react-router&apos;;
+render(&lt;Router/&gt;, document.getElementById(&apos;app&apos;));
+</code></pre><p>Router &#x7EC4;&#x4EF6;&#x672C;&#x8EAB;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x8DEF;&#x7531;&#x8981;&#x901A;&#x8FC7; Route &#x7EC4;&#x4EF6;&#x5B9A;&#x4E49;&#x3002;</p>
+<pre><code>import { Router, Route, hashHistory } from &apos;react-router&apos;;
+
+render((
+  &lt;Router history={hashHistory}&gt;
+    &lt;Route path=&quot;/&quot; component={App}/&gt;
+  &lt;/Router&gt;
+), document.getElementById(&apos;app&apos;));
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6839;&#x8DEF;&#x7531; / &#xFF08;&#x6BD4;&#x5982; <a href="http://www.example.com/" target="_blank">http://www.example.com/</a> &#xFF09;&#xFF0C;&#x7EC4;&#x4EF6; APP &#x5C31;&#x4F1A;&#x52A0;&#x8F7D;&#x5230; document.getElementById(&apos;app&apos;) &#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x8FD8;&#x6CE8;&#x610F;&#x5230;&#xFF0C; Router &#x7EC4;&#x4EF6;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570; history &#xFF0C;&#x5B83;&#x7684;&#x503C; hashHistory &#x8868;&#x793A;&#xFF0C;&#x8DEF;&#x7531;&#x7684;&#x5207;&#x6362;&#x7531;URL&#x7684;hash&#x53D8;&#x5316;&#x51B3;&#x5B9A;&#xFF0C;&#x5373;URL&#x7684; # &#x90E8;&#x5206;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE; <a href="http://www.example.com/" target="_blank">http://www.example.com/</a> &#xFF0C;&#x5B9E;&#x9645;&#x4F1A;&#x770B;&#x5230;&#x7684;&#x662F; <a href="http://www.example.com/#/" target="_blank">http://www.example.com/#/</a> &#x3002;</p>
+<p>Route &#x7EC4;&#x4EF6;&#x5B9A;&#x4E49;&#x4E86;URL&#x8DEF;&#x5F84;&#x4E0E;&#x7EC4;&#x4EF6;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x591A;&#x4E2A; Route &#x7EC4;&#x4EF6;&#x3002;</p>
+<pre><code>&lt;Router history={hashHistory}&gt;
+  &lt;Route path=&quot;/&quot; component={App}/&gt;
+  &lt;Route path=&quot;/repos&quot; component={Repos}/&gt;
+  &lt;Route path=&quot;/about&quot; component={About}/&gt;
+&lt;/Router&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE; /repos &#xFF08;&#x6BD4;&#x5982; <a href="http://localhost:8080/#/repos" target="_blank">http://localhost:8080/#/repos</a> &#xFF09;&#x65F6;&#xFF0C;&#x52A0;&#x8F7D; Repos &#x7EC4;&#x4EF6;&#xFF1B;&#x8BBF;&#x95EE; /about &#xFF08; <a href="http://localhost:8080/#/about" target="_blank">http://localhost:8080/#/about</a> &#xFF09;&#x65F6;&#xFF0C;&#x52A0;&#x8F7D; About &#x7EC4;&#x4EF6;&#x3002;</p>
+<h2 id="&#x4E8C;&#x3001;&#x5D4C;&#x5957;&#x8DEF;&#x7531;">&#x4E8C;&#x3001;&#x5D4C;&#x5957;&#x8DEF;&#x7531;</h2>
+<p>Route &#x7EC4;&#x4EF6;&#x8FD8;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x3002;</p>
+<pre><code>&lt;Router history={hashHistory}&gt;
+  &lt;Route path=&quot;/&quot; component={App}&gt;
+  &lt;Route path=&quot;/repos&quot; component={Repos}/&gt;
+    &lt;Route path=&quot;/about&quot; component={About}/&gt;
+  &lt;/Route&gt;
+&lt;/Router&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE; /repos &#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x52A0;&#x8F7D; App &#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5B83;&#x7684;&#x5185;&#x90E8;&#x518D;&#x52A0;&#x8F7D; Repos &#x7EC4;&#x4EF6;&#x3002;</p>
+<pre><code>&lt;App&gt;
+  &lt;Repos/&gt;
+&lt;/App&gt;
+</code></pre><p>App &#x7EC4;&#x4EF6;&#x8981;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x6837;&#x5B50;&#x3002;</p>
+<pre><code>export default React.createClass({
+  render() {
+    return &lt;div&gt;
+      {this.props.children}
+    &lt;/div&gt;
+  }
+})
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C; App &#x7EC4;&#x4EF6;&#x7684; this.props.children &#x5C5E;&#x6027;&#x5C31;&#x662F;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x5B50;&#x8DEF;&#x7531;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x5199;&#x5728; Router &#x7EC4;&#x4EF6;&#x91CC;&#x9762;&#xFF0C;&#x5355;&#x72EC;&#x4F20;&#x5165; Router &#x7EC4;&#x4EF6;&#x7684; routes &#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>let routes = &lt;Route path=&quot;/&quot; component={App}&gt;
+  &lt;Route path=&quot;/repos&quot; component={Repos}/&gt;
+  &lt;Route path=&quot;/about&quot; component={About}/&gt;
+&lt;/Route&gt;;
+
+&lt;Router routes={routes} history={browserHistory}/&gt;
+</code></pre><h2 id="&#x4E09;&#x3001;-path-&#x5C5E;&#x6027;">&#x4E09;&#x3001; path &#x5C5E;&#x6027;</h2>
+<p>Route &#x7EC4;&#x4EF6;&#x7684; path &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x8DEF;&#x7531;&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x4E0D;&#x7BA1;&#x8DEF;&#x5F84;&#x662F;&#x5426;&#x5339;&#x914D;&#xFF0C;&#x603B;&#x662F;&#x4F1A;&#x52A0;&#x8F7D;&#x6307;&#x5B9A;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x8BF7;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<pre><code>&lt;Route path=&quot;inbox&quot; component={Inbox}&gt;
+   &lt;Route path=&quot;messages/:id&quot; component={Message} /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x8BBF;&#x95EE; /inbox/messages/:id &#x65F6;&#xFF0C;&#x4F1A;&#x52A0;&#x8F7D;&#x4E0B;&#x9762;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
+<pre><code>&lt;Inbox&gt;
+  &lt;Message/&gt;
+&lt;/Inbox&gt;
+</code></pre><p>&#x5982;&#x679C;&#x7701;&#x7565;&#x5916;&#x5C42; Route &#x7684; path &#x53C2;&#x6570;&#xFF0C;&#x5199;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x6837;&#x5B50;&#x3002;</p>
+<pre><code>&lt;Route component={Inbox}&gt;
+  &lt;Route path=&quot;inbox/messages/:id&quot; component={Message} /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x73B0;&#x5728;&#x7528;&#x6237;&#x8BBF;&#x95EE; /inbox/messages/:id &#x65F6;&#xFF0C;&#x7EC4;&#x4EF6;&#x52A0;&#x8F7D;&#x8FD8;&#x662F;&#x539F;&#x6765;&#x7684;&#x6837;&#x5B50;&#x3002;</p>
+<pre><code>&lt;Inbox&gt;
+  &lt;Message/&gt;
+&lt;/Inbox&gt;
+</code></pre><h2 id="&#x56DB;&#x3001;&#x901A;&#x914D;&#x7B26;">&#x56DB;&#x3001;&#x901A;&#x914D;&#x7B26;</h2>
+<p>path &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;&#x3002;</p>
+<pre><code>&lt;Route path=&quot;/hello/:name&quot;&gt;
+// &#x5339;&#x914D; /hello/michael
+// &#x5339;&#x914D; /hello/ryan
+
+&lt;Route path=&quot;/hello(/:name)&quot;&gt;
+// &#x5339;&#x914D; /hello
+// &#x5339;&#x914D; /hello/michael
+// &#x5339;&#x914D; /hello/ryan
+
+&lt;Route path=&quot;/files/*.*&quot;&gt;
+// &#x5339;&#x914D; /files/hello.jpg
+// &#x5339;&#x914D; /files/hello.html
+
+&lt;Route path=&quot;/files/*&quot;&gt;
+// &#x5339;&#x914D; /files/
+// &#x5339;&#x914D; /files/a
+// &#x5339;&#x914D; /files/a/b
+
+&lt;Route path=&quot;/**/*.jpg&quot;&gt;
+// &#x5339;&#x914D; /files/hello.jpg
+// &#x5339;&#x914D; /files/path/to/file.jpg
+</code></pre><p>&#x901A;&#x914D;&#x7B26;&#x7684;&#x89C4;&#x5219;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code>&#xFF08;1&#xFF09; :paramName
+
+:paramName &#x5339;&#x914D;URL&#x7684;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x76F4;&#x5230;&#x9047;&#x5230;&#x4E0B;&#x4E00;&#x4E2A; / &#x3001; ? &#x3001; # &#x4E3A;&#x6B62;&#x3002;&#x8FD9;&#x4E2A;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; this.props.params.paramName &#x53D6;&#x51FA;&#x3002;
+
+&#xFF08;2&#xFF09; ()
+
+() &#x8868;&#x793A;URL&#x7684;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;
+
+&#xFF08;3&#xFF09; *
+
+* &#x5339;&#x914D;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF0C;&#x76F4;&#x5230;&#x6A21;&#x5F0F;&#x91CC;&#x9762;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;&#x6B62;&#x3002;&#x5339;&#x914D;&#x65B9;&#x5F0F;&#x662F;&#x975E;&#x8D2A;&#x5A6A;&#x6A21;&#x5F0F;&#x3002;
+
+&#xFF08;4&#xFF09; **
+
+** &#x5339;&#x914D;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#xFF0C;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x4E2A; / &#x3001; ? &#x3001; # &#x4E3A;&#x6B62;&#x3002;&#x5339;&#x914D;&#x65B9;&#x5F0F;&#x662F;&#x8D2A;&#x5A6A;&#x6A21;&#x5F0F;&#x3002;
+</code></pre><p>path &#x5C5E;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x4E0D;&#x4EE5; / &#x5F00;&#x5934;&#xFF09;&#xFF0C;&#x5339;&#x914D;&#x65F6;&#x5C31;&#x4F1A;&#x76F8;&#x5BF9;&#x4E8E;&#x7236;&#x7EC4;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0A;&#x4E00;&#x8282;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x5D4C;&#x5957;&#x8DEF;&#x7531;&#x5982;&#x679C;&#x60F3;&#x6446;&#x8131;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x7531;&#x3002;</p>
+<p>&#x8DEF;&#x7531;&#x5339;&#x914D;&#x89C4;&#x5219;&#x662F;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x4E00;&#x65E6;&#x53D1;&#x73B0;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x5176;&#x4F59;&#x7684;&#x89C4;&#x5219;&#x4E86;&#x3002;</p>
+<pre><code>&lt;Route path=&quot;/comments&quot; ... /&gt;
+&lt;Route path=&quot;/comments&quot; ... /&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x8DEF;&#x5F84; /comments &#x540C;&#x65F6;&#x5339;&#x914D;&#x4E24;&#x4E2A;&#x89C4;&#x5219;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x89C4;&#x5219;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#x3002;</p>
+<p>&#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x7279;&#x522B;&#x5C0F;&#x5FC3;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<pre><code>&lt;Router&gt;
+  &lt;Route path=&quot;/:userName/:id&quot; component={UserPage}/&gt;
+  &lt;Route path=&quot;/about/me&quot; component={About}/&gt;
+&lt;/Router&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE; /about/me &#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x7B2C;&#x4E8C;&#x4E2A;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x5339;&#x914D; /:userName/:id &#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5E26;&#x53C2;&#x6570;&#x7684;&#x8DEF;&#x5F84;&#x4E00;&#x822C;&#x8981;&#x5199;&#x5728;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7684;&#x5E95;&#x90E8;&#x3002;</p>
+<p>&#x6B64;&#x5916;&#xFF0C;URL&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32; /foo?bar=baz &#xFF0C;&#x53EF;&#x4EE5;&#x7528; this.props.location.query.bar &#x83B7;&#x53D6;&#x3002;</p>
+<h2 id="&#x4E94;&#x3001;indexroute-&#x7EC4;&#x4EF6;">&#x4E94;&#x3001;IndexRoute &#x7EC4;&#x4EF6;</h2>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4F60;&#x4F1A;&#x4E0D;&#x4F1A;&#x89C9;&#x5F97;&#x6709;&#x4E00;&#x70B9;&#x95EE;&#x9898;&#xFF1F;</p>
+<pre><code>&lt;Router&gt;
+  &lt;Route path=&quot;/&quot; component={App}&gt;
+    &lt;Route path=&quot;accounts&quot; component={Accounts}/&gt;
+    &lt;Route path=&quot;statements&quot; component={Statements}/&gt;
+  &lt;/Route&gt;
+&lt;/Router&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x8BBF;&#x95EE;&#x6839;&#x8DEF;&#x5F84; / &#xFF0C;&#x4E0D;&#x4F1A;&#x52A0;&#x8F7D;&#x4EFB;&#x4F55;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C; App &#x7EC4;&#x4EF6;&#x7684; this.props.children &#xFF0C;&#x8FD9;&#x65F6;&#x662F; undefined &#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x91C7;&#x7528; {this.props.children || &lt;Home/&gt;} &#x8FD9;&#x6837;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x8FD9;&#x65F6;&#xFF0C; Home &#x660E;&#x660E;&#x662F; Accounts &#x548C; Statements &#x7684;&#x540C;&#x7EA7;&#x7EC4;&#x4EF6;&#xFF0C;&#x5374;&#x6CA1;&#x6709;&#x5199;&#x5728; Route &#x4E2D;&#x3002;</p>
+<p>IndexRoute &#x5C31;&#x662F;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x663E;&#x5F0F;&#x6307;&#x5B9A; Home &#x662F;&#x6839;&#x8DEF;&#x7531;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x5373;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x52A0;&#x8F7D;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x628A; IndexRoute &#x60F3;&#x8C61;&#x6210;&#x67D0;&#x4E2A;&#x8DEF;&#x5F84;&#x7684; index.html &#x3002;</p>
+<pre><code>&lt;Router&gt;
+  &lt;Route path=&quot;/&quot; component={App}&gt;
+    &lt;IndexRoute component={Home}/&gt;
+    &lt;Route path=&quot;accounts&quot; component={Accounts}/&gt;
+    &lt;Route path=&quot;statements&quot; component={Statements}/&gt;
+  &lt;/Route&gt;
+&lt;/Router&gt;
+</code></pre><p>&#x73B0;&#x5728;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE; / &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x7EC4;&#x4EF6;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code>&lt;App&gt;
+  &lt;Home/&gt;
+&lt;/App&gt;
+</code></pre><p>&#x8FD9;&#x79CD;&#x7EC4;&#x4EF6;&#x7ED3;&#x6784;&#x5C31;&#x5F88;&#x6E05;&#x6670;&#x4E86;&#xFF1A; App &#x53EA;&#x5305;&#x542B;&#x4E0B;&#x7EA7;&#x7EC4;&#x4EF6;&#x7684;&#x5171;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x672C;&#x8EAB;&#x7684;&#x5C55;&#x793A;&#x5185;&#x5BB9;&#x5219;&#x7531; Home &#x7EC4;&#x4EF6;&#x5B9A;&#x4E49;&#x3002;&#x8FD9;&#x6837;&#x6709;&#x5229;&#x4E8E;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#xFF0C;&#x4E5F;&#x6709;&#x5229;&#x4E8E;&#x4F7F;&#x7528;React Router&#x63D0;&#x4F9B;&#x7684;&#x5404;&#x79CD;API&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C; IndexRoute &#x7EC4;&#x4EF6;&#x6CA1;&#x6709;&#x8DEF;&#x5F84;&#x53C2;&#x6570; path &#x3002;</p>
+<h2 id="&#x516D;&#x3001;redirect-&#x7EC4;&#x4EF6;">&#x516D;&#x3001;Redirect &#x7EC4;&#x4EF6;</h2>
+<p><redirect> &#x7EC4;&#x4EF6;&#x7528;&#x4E8E;&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8DF3;&#x8F6C;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x3002;</redirect></p>
+<pre><code>&lt;Route path=&quot;inbox&quot; component={Inbox}&gt;
+   {/* &#x4ECE; /inbox/messages/:id &#x8DF3;&#x8F6C;&#x5230; /messages/:id */}
+   &lt;Redirect from=&quot;messages/:id&quot; to=&quot;/messages/:id&quot; /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x73B0;&#x5728;&#x8BBF;&#x95EE; /inbox/messages/5 &#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8DF3;&#x8F6C;&#x5230; /messages/5 &#x3002;</p>
+<h2 id="&#x4E03;&#x3001;indexredirect-&#x7EC4;&#x4EF6;">&#x4E03;&#x3001;IndexRedirect &#x7EC4;&#x4EF6;</h2>
+<p>IndexRedirect &#x7EC4;&#x4EF6;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x6839;&#x8DEF;&#x7531;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x7528;&#x6237;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x67D0;&#x4E2A;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;</p>
+<pre><code>&lt;Route path=&quot;/&quot; component={App}&gt;
+  &lt;IndexRedirect to=&quot;/welcome&quot; /&gt;
+  &lt;Route path=&quot;welcome&quot; component={Welcome} /&gt;
+  &lt;Route path=&quot;about&quot; component={About} /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6839;&#x8DEF;&#x5F84;&#x65F6;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x5B50;&#x7EC4;&#x4EF6; welcome &#x3002;</p>
+<h2 id="&#x516B;&#x3001;link">&#x516B;&#x3001;Link</h2>
+<p>Link &#x7EC4;&#x4EF6;&#x7528;&#x4E8E;&#x53D6;&#x4EE3; a&#x6807;&#x7B7E;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x94FE;&#x63A5;&#xFF0C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x540E;&#x8DF3;&#x8F6C;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x3002;&#x5B83;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x662F; a&#x6807;&#x7B7E;&#x7684;React &#x7248;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x63A5;&#x6536; Router &#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<pre><code>render() {
+  return &lt;div&gt;
+    &lt;ul role=&quot;nav&quot;&gt;
+      &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;Link to=&quot;/repos&quot;&gt;Repos&lt;/Link&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+}
+</code></pre><p>&#x5982;&#x679C;&#x5E0C;&#x671B;&#x5F53;&#x524D;&#x7684;&#x8DEF;&#x7531;&#x4E0E;&#x5176;&#x4ED6;&#x8DEF;&#x7531;&#x6709;&#x4E0D;&#x540C;&#x6837;&#x5F0F;&#xFF0C;&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Link &#x7EC4;&#x4EF6;&#x7684; activeStyle &#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>&lt;Link to=&quot;/about&quot; activeStyle={{color: &apos;red&apos;}}&gt;About&lt;/Link&gt;
+&lt;Link to=&quot;/repos&quot; activeStyle={{color: &apos;red&apos;}}&gt;Repos&lt;/Link&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x94FE;&#x63A5;&#x4F1A;&#x7EA2;&#x8272;&#x663E;&#x793A;&#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x505A;&#x6CD5;&#x662F;&#xFF0C;&#x4F7F;&#x7528; activeClassName &#x6307;&#x5B9A;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684; Class &#x3002;</p>
+<pre><code>&lt;Link to=&quot;/about&quot; activeClassName=&quot;active&quot;&gt;About&lt;/Link&gt;
+&lt;Link to=&quot;/repos&quot; activeClassName=&quot;active&quot;&gt;Repos&lt;/Link&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x94FE;&#x63A5;&#x7684; class &#x4F1A;&#x5305;&#x542B; active &#x3002;</p>
+<p>&#x5728; Router &#x7EC4;&#x4EF6;&#x4E4B;&#x5916;&#xFF0C;&#x5BFC;&#x822A;&#x5230;&#x8DEF;&#x7531;&#x9875;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x7684;History API&#xFF0C;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5199;&#x3002;</p>
+<pre><code>import { browserHistory } from &apos;react-router&apos;;
+browserHistory.push(&apos;/some/path&apos;);
+</code></pre><h2 id="&#x4E5D;&#x3001;indexlink">&#x4E5D;&#x3001;IndexLink</h2>
+<p>&#x5982;&#x679C;&#x94FE;&#x63A5;&#x5230;&#x6839;&#x8DEF;&#x7531; / &#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528; Link &#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x8981;&#x4F7F;&#x7528; IndexLink &#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5BF9;&#x4E8E;&#x6839;&#x8DEF;&#x7531;&#x6765;&#x8BF4;&#xFF0C; activeStyle &#x548C; activeClassName &#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x603B;&#x662F;&#x751F;&#x6548;&#xFF0C;&#x56E0;&#x4E3A; / &#x4F1A;&#x5339;&#x914D;&#x4EFB;&#x4F55;&#x5B50;&#x8DEF;&#x7531;&#x3002;&#x800C; IndexLink &#x7EC4;&#x4EF6;&#x4F1A;&#x4F7F;&#x7528;&#x8DEF;&#x5F84;&#x7684;&#x7CBE;&#x786E;&#x5339;&#x914D;&#x3002;</p>
+<pre><code>&lt;IndexLink to=&quot;/&quot; activeClassName=&quot;active&quot;&gt;
+  Home
+&lt;/IndexLink&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6839;&#x8DEF;&#x7531;&#x53EA;&#x4F1A;&#x5728;&#x7CBE;&#x786E;&#x5339;&#x914D;&#x65F6;&#xFF0C;&#x624D;&#x5177;&#x6709; activeClassName &#x3002;</p>
+<p>&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528; Link &#x7EC4;&#x4EF6;&#x7684; onlyActiveOnIndex &#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x80FD;&#x8FBE;&#x5230;&#x540C;&#x6837;&#x6548;&#x679C;&#x3002;</p>
+<pre><code>&lt;Link to=&quot;/&quot; activeClassName=&quot;active&quot; onlyActiveOnIndex={true}&gt;
+  Home
+&lt;/Link&gt;
+</code></pre><p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C; IndexLink &#x5C31;&#x662F;&#x5BF9; Link &#x7EC4;&#x4EF6;&#x7684; onlyActiveOnIndex &#x5C5E;&#x6027;&#x7684;&#x5305;&#x88C5;&#x3002;</p>
+<h2 id="&#x5341;&#x3001;histroy-&#x5C5E;&#x6027;">&#x5341;&#x3001;histroy &#x5C5E;&#x6027;</h2>
+<p>Router &#x7EC4;&#x4EF6;&#x7684; history &#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6765;&#x76D1;&#x542C;&#x6D4F;&#x89C8;&#x5668;&#x5730;&#x5740;&#x680F;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x5C06;URL&#x89E3;&#x6790;&#x6210;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x5BF9;&#x8C61;&#xFF0C;&#x4F9B; React Router &#x5339;&#x914D;&#x3002;</p>
+<p>history &#x5C5E;&#x6027;&#xFF0C;&#x4E00;&#x5171;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E09;&#x79CD;&#x503C;&#x3002;</p>
+<pre><code>browserHistory
+hashHistory
+createMemoryHistory
+</code></pre><p>&#x5982;&#x679C;&#x8BBE;&#x4E3A; hashHistory &#xFF0C;&#x8DEF;&#x7531;&#x5C06;&#x901A;&#x8FC7;URL&#x7684;hash&#x90E8;&#x5206;&#xFF08; # &#xFF09;&#x5207;&#x6362;&#xFF0C;URL&#x7684;&#x5F62;&#x5F0F;&#x7C7B;&#x4F3C; example.com/#/some/path &#x3002;</p>
+<pre><code>import { hashHistory } from &apos;react-router&apos;
+
+render(
+  &lt;Router history={hashHistory} routes={routes} /&gt;,
+  document.getElementById(&apos;app&apos;)
+)
+</code></pre><p>&#x5982;&#x679C;&#x8BBE;&#x4E3A; browserHistory &#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8DEF;&#x7531;&#x5C31;&#x4E0D;&#x518D;&#x901A;&#x8FC7; Hash &#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x800C;&#x663E;&#x793A;&#x6B63;&#x5E38;&#x7684;&#x8DEF;&#x5F84; example.com/some/path &#xFF0C;&#x80CC;&#x540E;&#x8C03;&#x7528;&#x7684;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x7684;History API&#x3002;</p>
+<pre><code>import { browserHistory } from &apos;react-router&apos;
+
+render(
+  &lt;Router history={browserHistory} routes={routes} /&gt;,
+  document.getElementById(&apos;app&apos;)
+)
+</code></pre><p>&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x9700;&#x8981;&#x5BF9; &#x670D;&#x52A1;&#x5668;&#x6539;&#x9020; &#x3002;&#x5426;&#x5219;&#x7528;&#x6237;&#x76F4;&#x63A5;&#x5411;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x67D0;&#x4E2A;&#x5B50;&#x8DEF;&#x7531;&#xFF0C;&#x4F1A;&#x663E;&#x793A;&#x7F51;&#x9875;&#x627E;&#x4E0D;&#x5230;&#x7684;404&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5F00;&#x53D1;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x662F; webpack-dev-server &#xFF0C;&#x52A0;&#x4E0A; --history-api-fallback &#x53C2;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<pre><code>$ webpack-dev-server --inline --content-base . --history-api-fallback
+
+createMemoryHistory &#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x6E32;&#x67D3;&#x3002;&#x5B83;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x4E2D;&#x7684; history &#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;URL&#x4E92;&#x52A8;&#x3002;
+
+
+const history = createMemoryHistory(location)
+</code></pre><h2 id="&#x5341;&#x4E00;&#x3001;&#x8868;&#x5355;&#x5904;&#x7406;">&#x5341;&#x4E00;&#x3001;&#x8868;&#x5355;&#x5904;&#x7406;</h2>
+<p>Link &#x7EC4;&#x4EF6;&#x7528;&#x4E8E;&#x6B63;&#x5E38;&#x7684;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x8DF3;&#x8F6C;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x65F6;&#x8FD8;&#x9700;&#x8981;&#x8868;&#x5355;&#x8DF3;&#x8F6C;&#x3001;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x8DF3;&#x8F6C;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x600E;&#x4E48;&#x8DDF;React Router&#x5BF9;&#x63A5;&#x5462;&#xFF1F;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#x5355;&#x3002;</p>
+<pre><code>&lt;form onSubmit={this.handleSubmit}&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;userName&quot;/&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;repo&quot;/&gt;
+  &lt;button type=&quot;submit&quot;&gt;Go&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528; browserHistory.push</p>
+<pre><code>import { browserHistory } from &apos;react-router&apos;
+
+// ...
+  handleSubmit(event) {
+    event.preventDefault()
+    const userName = event.target.elements[0].value
+    const repo = event.target.elements[1].value
+    const path = `/repos/${userName}/${repo}`
+    browserHistory.push(path)
+  },
+</code></pre><p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528; context &#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code>export default React.createClass({
+
+  // ask for `router` from context
+  contextTypes: {
+    router: React.PropTypes.object
+  },
+
+  handleSubmit(event) {
+    // ...
+    this.context.router.push(path)
+  },
+})
+</code></pre><h2 id="&#x5341;&#x4E8C;&#x3001;&#x8DEF;&#x7531;&#x7684;&#x94A9;&#x5B50;">&#x5341;&#x4E8C;&#x3001;&#x8DEF;&#x7531;&#x7684;&#x94A9;&#x5B50;</h2>
+<p>&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x90FD;&#x6709; Enter &#x548C; Leave &#x94A9;&#x5B50;&#xFF0C;&#x7528;&#x6237;&#x8FDB;&#x5165;&#x6216;&#x79BB;&#x5F00;&#x8BE5;&#x8DEF;&#x7531;&#x65F6;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code>&lt;Route path=&quot;about&quot; component={About} /&gt;
+&lt;Route path=&quot;inbox&quot; component={Inbox}&gt;
+  &lt;Redirect from=&quot;messages/:id&quot; to=&quot;/messages/:id&quot; /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x7528;&#x6237;&#x79BB;&#x5F00; /messages/:id &#xFF0C;&#x8FDB;&#x5165; /about &#x65F6;&#xFF0C;&#x4F1A;&#x4F9D;&#x6B21;&#x89E6;&#x53D1;&#x4EE5;&#x4E0B;&#x7684;&#x94A9;&#x5B50;&#x3002;</p>
+<p>/messages/:id &#x7684; onLeave
+/inbox &#x7684; onLeave
+/about &#x7684; onEnter
+&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x4F7F;&#x7528; onEnter &#x94A9;&#x5B50;&#x66FF;&#x4EE3; <redirect> &#x7EC4;&#x4EF6;&#x3002;</redirect></p>
+<pre><code>&lt;Route path=&quot;inbox&quot; component={Inbox}&gt;
+  &lt;Route
+    path=&quot;messages/:id&quot;
+    onEnter={
+      ({params}, replace) =&gt; replace(`/messages/${params.id}`)
+    }
+  /&gt;
+&lt;/Route&gt;
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x7EA7;&#x5E94;&#x7528;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x79BB;&#x5F00;&#x4E00;&#x4E2A;&#x8DEF;&#x5F84;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8DF3;&#x51FA;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6846;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x6237;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x79BB;&#x5F00;&#x3002;</p>
+<pre><code>const Home = withRouter(
+  React.createClass({
+    componentDidMount() {
+      this.props.router.setRouteLeaveHook(
+        this.props.route,
+        this.routerWillLeave
+      )
+    },
+
+    routerWillLeave(nextLocation) {
+      // &#x8FD4;&#x56DE; false &#x4F1A;&#x7EE7;&#x7EED;&#x505C;&#x7559;&#x5F53;&#x524D;&#x9875;&#x9762;&#xFF0C;
+      // &#x5426;&#x5219;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F1A;&#x663E;&#x793A;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x8BA9;&#x5176;&#x81EA;&#x5DF1;&#x51B3;&#x5B9A;
+      if (!this.state.isSaved)
+        return &apos;&#x786E;&#x8BA4;&#x8981;&#x79BB;&#x5F00;&#xFF1F;&apos;;
+    },
+  })
+)
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C; setRouteLeaveHook &#x65B9;&#x6CD5;&#x4E3A; Leave &#x94A9;&#x5B50;&#x6307;&#x5B9A; routerWillLeave &#x51FD;&#x6570;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x5982;&#x679C;&#x8FD4;&#x56DE; false &#xFF0C;&#x5C06;&#x963B;&#x6B62;&#x8DEF;&#x7531;&#x7684;&#x5207;&#x6362;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x63D0;&#x793A;&#x7528;&#x6237;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x5207;&#x6362;&#x3002;</p>
 
                                 
                                 </section>
@@ -859,12 +1201,12 @@
 
             
                 
-                <a href="section1.html" class="navigation navigation-prev " aria-label="Previous page: 第一节">
+                <a href="section1.html" class="navigation navigation-prev " aria-label="Previous page: 项目的搭建">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../vue/" class="navigation navigation-next " aria-label="Next page: vue">
+                <a href="section3.html" class="navigation navigation-next " aria-label="Next page: Redux使用入门">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -875,7 +1217,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第二节","level":"1.5.2","depth":2,"next":{"title":"vue","level":"1.6","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"第一节","level":"1.6.1","depth":2,"path":"vue/section1.md","ref":"vue/section1.md","articles":[]},{"title":"第二节","level":"1.6.2","depth":2,"path":"vue/section2.md","ref":"vue/section2.md","articles":[]}]},"previous":{"title":"第一节","level":"1.5.1","depth":2,"path":"React/section1.md","ref":"React/section1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"React/section2.md","mtime":"2017-05-11T05:51:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-24T15:37:52.139Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React-Router使用入门","level":"1.5.2","depth":2,"next":{"title":"Redux使用入门","level":"1.5.3","depth":2,"path":"React/section3.md","ref":"React/section3.md","articles":[]},"previous":{"title":"项目的搭建","level":"1.5.1","depth":2,"path":"React/section1.md","ref":"React/section1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"React/section2.md","mtime":"2017-05-25T15:23:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-25T15:21:13.648Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
