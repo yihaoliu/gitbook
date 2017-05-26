@@ -955,7 +955,286 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="webpack&#x9879;&#x76EE;&#x642D;&#x5EFA;">webpack&#x9879;&#x76EE;&#x642D;&#x5EFA;</h1>
+<h3 id="&#x4EC0;&#x4E48;&#x662F;-webpack&#xFF1F;">&#x4EC0;&#x4E48;&#x662F; webpack&#xFF1F;</h3>
+<p>webpack&#x662F;&#x8FD1;&#x671F;&#x6700;&#x706B;&#x7684;&#x4E00;&#x6B3E;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;&#x517C;&#x6253;&#x5305;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x80FD;&#x628A;&#x5404;&#x79CD;&#x8D44;&#x6E90;&#xFF0C;&#x4F8B;&#x5982;JS&#xFF08;&#x542B;JSX&#xFF09;&#x3001;coffee&#x3001;&#x6837;&#x5F0F;&#xFF08;&#x542B;less/sass&#xFF09;&#x3001;&#x56FE;&#x7247;&#x7B49;&#x90FD;&#x4F5C;&#x4E3A;&#x6A21;&#x5757;&#x6765;&#x4F7F;&#x7528;&#x548C;&#x5904;&#x7406;&#x3002;
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; require(XXX) &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5F15;&#x5165;&#x5404;&#x6A21;&#x5757;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x7F16;&#x8BD1;&#xFF08;&#x6BD4;&#x5982;JSX&#x548C;sass&#xFF09;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x65E0;&#x987B;&#x5728;&#x4E0A;&#x9762;&#x82B1;&#x8D39;&#x592A;&#x591A;&#x5FC3;&#x601D;&#xFF0C;&#x56E0;&#x4E3A; webpack &#x6709;&#x7740;&#x5404;&#x79CD;&#x5065;&#x5168;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#xFF08;loader&#xFF09;&#x5728;&#x9ED8;&#x9ED8;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;&#xFF0C;&#x8FD9;&#x5757;&#x6211;&#x4EEC;&#x540E;&#x7EED;&#x4F1A;&#x63D0;&#x5230;&#x3002;
+&#x4F60;&#x53EF;&#x4EE5;&#x4E0D;&#x6253;&#x7B97;&#x5C06;&#x5176;&#x7528;&#x5728;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E0A;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x4E0D;&#x53BB;&#x638C;&#x63E1;&#x5B83;&#xFF0C;&#x56E0;&#x4E3A;&#x4EE5;&#x8FD1;&#x671F; Github &#x4E0A;&#x5404;&#x5927;&#x4E3B;&#x6D41;&#x7684;&#xFF08;React&#x76F8;&#x5173;&#xFF09;&#x9879;&#x76EE;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x4EEC;&#x4ED3;&#x5E93;&#x4E0A;&#x6240;&#x5C55;&#x793A;&#x7684;&#x793A;&#x4F8B;&#x5DF2;&#x7ECF;&#x662F;&#x57FA;&#x4E8E; webpack &#x6765;&#x5F00;&#x53D1;&#x7684;&#xFF0C;&#x6BD4;&#x5982; React-Boostrap &#x548C; Redux&#x3002;
+webpack&#x7684;&#x5B98;&#x7F51;&#x662F; <a href="http://webpack.github.io/" target="_blank">http://webpack.github.io/</a> &#xFF0C;&#x6587;&#x6863;&#x5730;&#x5740;&#x662F; <a href="http://webpack.github.io/docs/" target="_blank">http://webpack.github.io/docs/</a> &#xFF0C;&#x60F3;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x66F4;&#x8BE6;&#x7EC6;&#x4E86;&#x89E3;&#x7684;&#x53EF;&#x4EE5;&#x70B9;&#x8FDB;&#x53BB;&#x77A7;&#x4E00;&#x77A7;&#x3002;</p>
+<h3 id="webpack-&#x7684;&#x4F18;&#x52BF;">webpack &#x7684;&#x4F18;&#x52BF;</h3>
+<p>&#x5176;&#x4F18;&#x52BF;&#x4E3B;&#x8981;&#x53EF;&#x4EE5;&#x5F52;&#x7C7B;&#x4E3A;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#xFF1A;</p>
+<ol>
+<li>webpack &#x662F;&#x4EE5; commonJS &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x4E66;&#x5199;&#x811A;&#x672C;&#x6EF4;&#xFF0C;&#x4F46;&#x5BF9; AMD/CMD &#x7684;&#x652F;&#x6301;&#x4E5F;&#x5F88;&#x5168;&#x9762;&#xFF0C;&#x65B9;&#x4FBF;&#x65E7;&#x9879;&#x76EE;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x8FC1;&#x79FB;&#x3002;</li>
+<li>&#x80FD;&#x88AB;&#x6A21;&#x5757;&#x5316;&#x7684;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F; JS &#x4E86;&#x3002;</li>
+<li>&#x5F00;&#x53D1;&#x4FBF;&#x6377;&#xFF0C;&#x80FD;&#x66FF;&#x4EE3;&#x90E8;&#x5206; grunt/gulp &#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x6253;&#x5305;&#x3001;&#x538B;&#x7F29;&#x6DF7;&#x6DC6;&#x3001;&#x56FE;&#x7247;&#x8F6C;base64&#x7B49;&#x3002;</li>
+<li><p>&#x6269;&#x5C55;&#x6027;&#x5F3A;&#xFF0C;&#x63D2;&#x4EF6;&#x673A;&#x5236;&#x5B8C;&#x5584;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x652F;&#x6301; React &#x70ED;&#x63D2;&#x62D4;&#xFF08;&#x89C1; react-hot-loader &#xFF09;&#x7684;&#x529F;&#x80FD;&#x8BA9;&#x4EBA;&#x773C;&#x524D;&#x4E00;&#x4EAE;&#x3002;
+&#x6211;&#x4EEC;&#x8C08;&#x8C08;&#x7B2C;&#x4E00;&#x70B9;&#x3002;&#x4EE5; AMD/CMD &#x6A21;&#x5F0F;&#x6765;&#x8BF4;&#xFF0C;&#x9274;&#x4E8E;&#x6A21;&#x5757;&#x662F;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5E38;&#x89C4;&#x9700;&#x8981;&#x4F7F;&#x7528; define &#x51FD;&#x6570;&#x6765;&#x5E2E;&#x6211;&#x4EEC;&#x641E;&#x56DE;&#x8C03;&#xFF1A;</p>
+<pre><code>define([&apos;package/lib&apos;], function(lib){
+ function foo(){
+     lib.log(&apos;hello world!&apos;);
+ }
+ return {
+     foo: foo
+ };
+});
+</code></pre><p>&#x53E6;&#x5916;&#x4E3A;&#x4E86;&#x53EF;&#x4EE5;&#x517C;&#x5BB9; commonJS &#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06; define &#x8FD9;&#x4E48;&#x5199;&#xFF1A;</p>
+<pre><code>define(function (require, exports, module){
+ var someModule = require(&quot;someModule&quot;);
+ var anotherModule = require(&quot;anotherModule&quot;);    
 
+ someModule.doTehAwesome();
+ anotherModule.doMoarAwesome();
+
+ exports.asplode = function (){
+     someModule.doTehAwesome();
+     anotherModule.doMoarAwesome();
+ };
+});
+</code></pre><p>&#x7136;&#x800C;&#x5BF9; webpack &#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x4E0A;&#x9762;&#x4E66;&#x5199; commonJS &#x5F62;&#x5F0F;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x65E0;&#x987B;&#x4EFB;&#x4F55; define &#xFF08;&#x6BD5;&#x7ADF;&#x6700;&#x7EC8;&#x6A21;&#x5757;&#x90FD;&#x6253;&#x5305;&#x5728;&#x4E00;&#x8D77;&#xFF0C;webpack &#x4E5F;&#x4F1A;&#x6700;&#x7EC8;&#x81EA;&#x52A8;&#x52A0;&#x4E0A;&#x81EA;&#x5DF1;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#xFF09;&#xFF1A;</p>
+</li>
+</ol>
+<pre><code>var someModule = require(&quot;someModule&quot;);
+    var anotherModule = require(&quot;anotherModule&quot;);    
+
+    someModule.doTehAwesome();
+    anotherModule.doMoarAwesome();
+
+    exports.asplode = function (){
+        someModule.doTehAwesome();
+        anotherModule.doMoarAwesome();
+ };
+</code></pre><p>&#x8FD9;&#x6837;&#x64B8;&#x7801;&#x81EA;&#x7136;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x8DDF;&#x56DE;&#x8C03;&#x795E;&#x9A6C;&#x7684;&#x8BF4; byebye~
+&#x4E0D;&#x8FC7;&#x5373;&#x4F7F;&#x4F60;&#x4FDD;&#x7559;&#x4E86;&#x4E4B;&#x524D; define &#x7684;&#x5199;&#x6CD5;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6EF4;&#xFF0C;&#x6BD5;&#x7ADF; webpack &#x7684;&#x517C;&#x5BB9;&#x6027;&#x76F8;&#x5F53;&#x51FA;&#x8272;&#xFF0C;&#x65B9;&#x4FBF;&#x4F60;&#x65E7;&#x9879;&#x76EE;&#x7684;&#x6A21;&#x5757;&#x76F4;&#x63A5;&#x8FC1;&#x79FB;&#x8FC7;&#x6765;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;">&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;</h3>
+<h5 id="&#x4E00;-&#x5B89;&#x88C5;">&#x4E00;. &#x5B89;&#x88C5;</h5>
+<p>&#x6211;&#x4EEC;&#x5E38;&#x89C4;&#x76F4;&#x63A5;&#x4F7F;&#x7528; npm &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5B89;&#x88C5;&#xFF1A;</p>
+<pre><code>$ npm install webpack -g
+</code></pre><p>&#x5F53;&#x7136;&#x5982;&#x679C;&#x5E38;&#x89C4;&#x9879;&#x76EE;&#x8FD8;&#x662F;&#x628A;&#x4F9D;&#x8D56;&#x5199;&#x5165; package.json &#x5305;&#x53BB;&#x66F4;&#x4EBA;&#x6027;&#x5316;&#xFF1A;</p>
+<pre><code>$ npm init
+$ npm install webpack --save-dev
+</code></pre><h5 id="&#x4E8C;-&#x914D;&#x7F6E;">&#x4E8C;. &#x914D;&#x7F6E;</h5>
+<p>&#x6BCF;&#x4E2A;&#x9879;&#x76EE;&#x4E0B;&#x90FD;&#x5FC5;&#x987B;&#x914D;&#x7F6E;&#x6709;&#x4E00;&#x4E2A; webpack.config.js &#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x5982;&#x540C;&#x5E38;&#x89C4;&#x7684; gulpfile.js/Gruntfile.js &#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x544A;&#x8BC9; webpack &#x5B83;&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#x3002;
+&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4E0B;&#x65B9;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code>var webpack = require(&apos;webpack&apos;);
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&apos;common.js&apos;);
+
+module.exports = {
+    //&#x63D2;&#x4EF6;&#x9879;
+    plugins: [commonsPlugin],
+    //&#x9875;&#x9762;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x914D;&#x7F6E;
+    entry: {
+        index : &apos;./src/js/page/index.js&apos;
+    },
+    //&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x8F93;&#x51FA;&#x914D;&#x7F6E;
+    output: {
+        path: &apos;dist/js/page&apos;,
+        filename: &apos;[name].js&apos;
+    },
+    module: {
+        //&#x52A0;&#x8F7D;&#x5668;&#x914D;&#x7F6E;
+        loaders: [
+            { test: /\.css$/, loader: &apos;style-loader!css-loader&apos; },
+            { test: /\.js$/, loader: &apos;jsx-loader?harmony&apos; },
+            { test: /\.scss$/, loader: &apos;style!css!sass?sourceMap&apos;},
+            { test: /\.(png|jpg)$/, loader: &apos;url-loader?limit=8192&apos;}
+        ]
+    },
+    //&#x5176;&#x5B83;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x914D;&#x7F6E;
+    resolve: {
+        root: &apos;E:/github/flux-example/src&apos;, //&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.json&apos;, &apos;.scss&apos;],
+        alias: {
+            AppStore : &apos;js/stores/AppStores.js&apos;,
+            ActionType : &apos;js/actions/ActionType.js&apos;,
+            AppAction : &apos;js/actions/AppAction.js&apos;
+        }
+    }
+};
+</code></pre><p>&#x2474; plugins &#x662F;&#x63D2;&#x4EF6;&#x9879;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A; CommonsChunkPlugin &#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x63D0;&#x53D6;&#x591A;&#x4E2A;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x7684;&#x516C;&#x5171;&#x811A;&#x672C;&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x4E00;&#x4E2A; common.js &#x6765;&#x65B9;&#x4FBF;&#x591A;&#x9875;&#x9762;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x590D;&#x7528;&#x3002;
+&#x2475; entry &#x662F;&#x9875;&#x9762;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#xFF0C;output &#x662F;&#x5BF9;&#x5E94;&#x8F93;&#x51FA;&#x9879;&#x914D;&#x7F6E;&#xFF08;&#x5373;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x6700;&#x7EC8;&#x8981;&#x751F;&#x6210;&#x4EC0;&#x4E48;&#x540D;&#x5B57;&#x7684;&#x6587;&#x4EF6;&#x3001;&#x5B58;&#x653E;&#x5230;&#x54EA;&#x91CC;&#xFF09;&#xFF0C;&#x5176;&#x8BED;&#x6CD5;&#x5927;&#x81F4;&#x4E3A;&#xFF1A;</p>
+<pre><code>{
+    entry: {
+        page1: &quot;./page1&quot;,
+        //&#x652F;&#x6301;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#xFF0C;&#x5C06;&#x52A0;&#x8F7D;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x4EE5;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4F5C;&#x4E3A;&#x8F93;&#x51FA;
+        page2: [&quot;./entry1&quot;, &quot;./entry2&quot;]
+    },
+    output: {
+        path: &quot;dist/js/page&quot;,
+        filename: &quot;[name].bundle.js&quot;
+    }
+}
+</code></pre><p>&#x8BE5;&#x6BB5;&#x4EE3;&#x7801;&#x6700;&#x7EC8;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A; page1.bundle.js &#x548C; page2.bundle.js&#xFF0C;&#x5E76;&#x5B58;&#x653E;&#x5230; ./dist/js/page &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x3002;
+&#x2476; module.loaders &#x662F;&#x6700;&#x5173;&#x952E;&#x7684;&#x4E00;&#x5757;&#x914D;&#x7F6E;&#x3002;&#x5B83;&#x544A;&#x77E5; webpack &#x6BCF;&#x4E00;&#x79CD;&#x6587;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x52A0;&#x8F7D;&#x5668;&#x6765;&#x5904;&#x7406;&#xFF1A;</p>
+<pre><code>module: {
+        //&#x52A0;&#x8F7D;&#x5668;&#x914D;&#x7F6E;
+        loaders: [
+            //.css &#x6587;&#x4EF6;&#x4F7F;&#x7528; style-loader &#x548C; css-loader &#x6765;&#x5904;&#x7406;
+            { test: /\.css$/, loader: &apos;style-loader!css-loader&apos; },
+            //.js &#x6587;&#x4EF6;&#x4F7F;&#x7528; jsx-loader &#x6765;&#x7F16;&#x8BD1;&#x5904;&#x7406;
+            { test: /\.js$/, loader: &apos;jsx-loader?harmony&apos; },
+            //.scss &#x6587;&#x4EF6;&#x4F7F;&#x7528; style-loader&#x3001;css-loader &#x548C; sass-loader &#x6765;&#x7F16;&#x8BD1;&#x5904;&#x7406;
+            { test: /\.scss$/, loader: &apos;style!css!sass?sourceMap&apos;},
+            //&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x4F7F;&#x7528; url-loader &#x6765;&#x5904;&#x7406;&#xFF0C;&#x5C0F;&#x4E8E;8kb&#x7684;&#x76F4;&#x63A5;&#x8F6C;&#x4E3A;base64
+            { test: /\.(png|jpg)$/, loader: &apos;url-loader?limit=8192&apos;}
+        ]
+    }
+</code></pre><p>&#x5982;&#x4E0A;&#xFF0C;&quot;-loader&quot;&#x5176;&#x5B9E;&#x662F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x4E0D;&#x5199;&#x7684;&#xFF0C;&#x591A;&#x4E2A;loader&#x4E4B;&#x95F4;&#x7528;&#x201C;!&#x201D;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;
+&#x6CE8;&#x610F;&#x6240;&#x6709;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7; npm &#x6765;&#x52A0;&#x8F7D;&#xFF0C;&#x5E76;&#x5EFA;&#x8BAE;&#x67E5;&#x9605;&#x5B83;&#x4EEC;&#x5BF9;&#x5E94;&#x7684; readme &#x6765;&#x770B;&#x770B;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x3002;
+&#x62FF;&#x6700;&#x540E;&#x4E00;&#x4E2A; url-loader &#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x4F1A;&#x5C06;&#x6837;&#x5F0F;&#x4E2D;&#x5F15;&#x7528;&#x5230;&#x7684;&#x56FE;&#x7247;&#x8F6C;&#x4E3A;&#x6A21;&#x5757;&#x6765;&#x5904;&#x7406;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x52A0;&#x8F7D;&#x5668;&#x9700;&#x8981;&#x5148;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#xFF1A;</p>
+<pre><code>npm install url-loader -save-dev
+</code></pre><p>&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x7684;&#x53C2;&#x6570;&#x201C;?limit=8192&#x201D;&#x8868;&#x793A;&#x5C06;&#x6240;&#x6709;&#x5C0F;&#x4E8E;8kb&#x7684;&#x56FE;&#x7247;&#x90FD;&#x8F6C;&#x4E3A;base64&#x5F62;&#x5F0F;&#xFF08;&#x5176;&#x5B9E;&#x5E94;&#x8BE5;&#x8BF4;&#x8D85;&#x8FC7;8kb&#x7684;&#x624D;&#x4F7F;&#x7528; url-loader &#x6765;&#x6620;&#x5C04;&#x5230;&#x6587;&#x4EF6;&#xFF0C;&#x5426;&#x5219;&#x8F6C;&#x4E3A;data url&#x5F62;&#x5F0F;&#xFF09;&#x3002;
+&#x2477; &#x6700;&#x540E;&#x662F; resolve &#x914D;&#x7F6E;&#xFF0C;&#x8FD9;&#x5757;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x76F4;&#x63A5;&#x5199;&#x6CE8;&#x91CA;&#x4E86;&#xFF1A;</p>
+<pre><code>resolve: {
+        //&#x67E5;&#x627E;module&#x7684;&#x8BDD;&#x4ECE;&#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#x67E5;&#x627E;
+        root: &apos;E:/github/flux-example/src&apos;, //&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
+        //&#x81EA;&#x52A8;&#x6269;&#x5C55;&#x6587;&#x4EF6;&#x540E;&#x7F00;&#x540D;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;require&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x4E0D;&#x5199;&#x540E;&#x7F00;&#x540D;
+        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.json&apos;, &apos;.scss&apos;],
+        //&#x6A21;&#x5757;&#x522B;&#x540D;&#x5B9A;&#x4E49;&#xFF0C;&#x65B9;&#x4FBF;&#x540E;&#x7EED;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x522B;&#x540D;&#xFF0C;&#x65E0;&#x987B;&#x591A;&#x5199;&#x957F;&#x957F;&#x7684;&#x5730;&#x5740;
+        alias: {
+            AppStore : &apos;js/stores/AppStores.js&apos;,//&#x540E;&#x7EED;&#x76F4;&#x63A5; require(&apos;AppStore&apos;) &#x5373;&#x53EF;
+            ActionType : &apos;js/actions/ActionType.js&apos;,
+            AppAction : &apos;js/actions/AppAction.js&apos;
+        }
+    }
+</code></pre><p>&#x5173;&#x4E8E; webpack.config.js &#x66F4;&#x8BE6;&#x5C3D;&#x7684;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8FD9;&#x91CC;&#x3002;
+&#x8FD0;&#x884C; webpack
+webpack &#x7684;&#x6267;&#x884C;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x76F4;&#x63A5;&#x6267;&#x884C;</p>
+<pre><code>$ webpack --display-error-details
+</code></pre><p>&#x5373;&#x53EF;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x53C2;&#x6570;&#x201C;--display-error-details&#x201D;&#x662F;&#x63A8;&#x8350;&#x52A0;&#x4E0A;&#x7684;&#xFF0C;&#x65B9;&#x4FBF;&#x51FA;&#x9519;&#x65F6;&#x80FD;&#x67E5;&#x9605;&#x66F4;&#x8BE6;&#x5C3D;&#x7684;&#x4FE1;&#x606F;&#xFF08;&#x6BD4;&#x5982; webpack &#x5BFB;&#x627E;&#x6A21;&#x5757;&#x7684;&#x8FC7;&#x7A0B;&#xFF09;&#xFF0C;&#x4ECE;&#x800C;&#x66F4;&#x597D;&#x5B9A;&#x4F4D;&#x5230;&#x95EE;&#x9898;&#x3002;
+&#x5176;&#x4ED6;&#x4E3B;&#x8981;&#x7684;&#x53C2;&#x6570;&#x6709;&#xFF1A;</p>
+<pre><code>$ webpack --config XXX.js   //&#x4F7F;&#x7528;&#x53E6;&#x4E00;&#x4EFD;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;webpack.config2.js&#xFF09;&#x6765;&#x6253;&#x5305;
+
+$ webpack --watch   //&#x76D1;&#x542C;&#x53D8;&#x52A8;&#x5E76;&#x81EA;&#x52A8;&#x6253;&#x5305;
+
+$ webpack -p    //&#x538B;&#x7F29;&#x6DF7;&#x6DC6;&#x811A;&#x672C;&#xFF0C;&#x8FD9;&#x4E2A;&#x975E;&#x5E38;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF01;
+
+$ webpack -d    //&#x751F;&#x6210;map&#x6620;&#x5C04;&#x6587;&#x4EF6;&#xFF0C;&#x544A;&#x77E5;&#x54EA;&#x4E9B;&#x6A21;&#x5757;&#x88AB;&#x6700;&#x7EC8;&#x6253;&#x5305;&#x5230;&#x54EA;&#x91CC;&#x4E86;
+</code></pre><p>&#x5176;&#x4E2D;&#x7684; -p &#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x66FE;&#x7ECF;&#x4E00;&#x4E2A;&#x672A;&#x538B;&#x7F29;&#x7684; 700kb &#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x538B;&#x7F29;&#x540E;&#x76F4;&#x63A5;&#x964D;&#x5230; 180kb&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x6837;&#x5F0F;&#x8FD9;&#x5757;&#x4E00;&#x53E5;&#x5C31;&#x72EC;&#x5360;&#x4E00;&#x884C;&#x811A;&#x672C;&#xFF0C;&#x5BFC;&#x81F4;&#x672A;&#x538B;&#x7F29;&#x811A;&#x672C;&#x53D8;&#x5F97;&#x5F88;&#x5927;&#xFF09;&#x3002;</p>
+<h3 id="&#x6A21;&#x5757;&#x5F15;&#x5165;">&#x6A21;&#x5757;&#x5F15;&#x5165;</h3>
+<p>&#x4E0A;&#x9762;&#x5520;&#x55D1;&#x4E86;&#x90A3;&#x4E48;&#x591A;&#x914D;&#x7F6E;&#x548C;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x8BF4;&#x8BF4;&#x5BFB;&#x5E38;&#x9875;&#x9762;&#x548C;&#x811A;&#x672C;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x5457;&#x3002;</p>
+<h5 id="&#x4E00;-html">&#x4E00;. HTML</h5>
+<p>&#x76F4;&#x63A5;&#x5728;&#x9875;&#x9762;&#x5F15;&#x5165; webpack &#x6700;&#x7EC8;&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x811A;&#x672C;&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x7528;&#x518D;&#x5199;&#x4EC0;&#x4E48; data-main &#x6216; seajs.use &#x4E86;&#xFF1A;</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src=&quot;dist/js/page/common.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;dist/js/page/index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x8FDE;&#x6837;&#x5F0F;&#x90FD;&#x4E0D;&#x7528;&#x5F15;&#x5165;&#xFF0C;&#x6BD5;&#x7ADF;&#x811A;&#x672C;&#x6267;&#x884C;&#x65F6;&#x4F1A;&#x52A8;&#x6001;&#x751F;&#x6210;<style>并标签打到head里。</p>
+<h5>二. JS</h5>
+<p>各脚本模块可以直接使用 commonJS 来书写，并可以直接引入未经编译的模块，比如 JSX、sass、coffee等（只要你在 webpack.config.js 里配置好了对应的加载器）。
+我们再看看编译前的页面入口文件（index.js）：</p>
+<pre><code>require(&#39;../../css/reset.scss&#39;); //加载初始化样式
+require(&#39;../../css/allComponent.scss&#39;); //加载组件样式
+var React = require(&#39;react&#39;);
+var AppWrap = require(&#39;../component/AppWrap&#39;); //加载组件
+var createRedux = require(&#39;redux&#39;).createRedux;
+var Provider = require(&#39;redux/react&#39;).Provider;
+var stores = require(&#39;AppStore&#39;);
+
+var redux = createRedux(stores);
+
+var App = React.createClass({
+    render: function() {
+        return (
+            &lt;Provider redux={redux}&gt;
+                {function() { return &lt;AppWrap /&gt;; }}
+            &lt;/Provider&gt;
+        );
+    }
+});
+
+React.render(
+    &lt;App /&gt;, document.body
+);
+</code></pre><p>一切就是这么简单么么哒~ 后续各种有的没的，webpack 都会帮你进行处理。</p>
+<h3>其他</h3>
+<p>至此我们已经基本上手了 webpack 的使用，下面是补充一些有用的技巧。</p>
+<h5>一. shimming</h5>
+<p>在 AMD/CMD 中，我们需要对不符合规范的模块（比如一些直接返回全局变量的插件）进行 shim 处理，这时候我们需要使用 exports-loader 来帮忙：</p>
+<pre><code>{ test: require.resolve(&quot;./src/js/tool/swipe.js&quot;),  loader: &quot;exports?swipe&quot;}
+</code></pre><p>之后在脚本中需要引用该模块的时候，这么简单地来使用就可以了：</p>
+<pre><code>require(&#39;./tool/swipe.js&#39;);
+swipe();
+</code></pre><h5>二. 自定义公共模块提取</h5>
+<p>在文章开始我们使用了 CommonsChunkPlugin 插件来提取多个页面之间的公共模块，并将该模块打包为 common.js 。
+但有时候我们希望能更加个性化一些，我们可以这样配置：</p>
+<pre><code>var CommonsChunkPlugin = require(&quot;webpack/lib/optimize/CommonsChunkPlugin&quot;);
+module.exports = {
+    entry: {
+        p1: &quot;./page1&quot;,
+        p2: &quot;./page2&quot;,
+        p3: &quot;./page3&quot;,
+        ap1: &quot;./admin/page1&quot;,
+        ap2: &quot;./admin/page2&quot;
+    },
+    output: {
+        filename: &quot;[name].js&quot;
+    },
+    plugins: [
+        new CommonsChunkPlugin(&quot;admin-commons.js&quot;, [&quot;ap1&quot;, &quot;ap2&quot;]),
+        new CommonsChunkPlugin(&quot;commons.js&quot;, [&quot;p1&quot;, &quot;p2&quot;, &quot;admin-commons.js&quot;])
+    ]
+};
+// &lt;script&gt;s required:
+// page1.html: commons.js, p1.js
+// page2.html: commons.js, p2.js
+// page3.html: p3.js
+// admin-page1.html: commons.js, admin-commons.js, ap1.js
+// admin-page2.html: commons.js, admin-commons.js, ap2.js
+</code></pre><h5>三. 独立打包样式文件</h5>
+<p>有时候可能希望项目的样式能不要被打包到脚本中，而是独立出来作为.css，然后在页面中以<link>标签引入。这时候我们需要 extract-text-webpack-plugin 来帮忙：</p>
+<pre><code>var webpack = require(&#39;webpack&#39;);
+    var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&#39;common.js&#39;);
+    var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+
+    module.exports = {
+        plugins: [commonsPlugin, new ExtractTextPlugin(&quot;[name].css&quot;)],
+        entry: {
+        //...省略其它配置
+        }
+    }
+</code></pre><p>最终 webpack 执行后会乖乖地把样式文件提取出来：</p>
+<h5>四. 使用CDN/远程文件</h5>
+<p>有时候我们希望某些模块走CDN并以<script>的形式挂载到页面上来加载，但又希望能在 webpack 的模块中使用上。
+这时候我们可以在配置文件里使用 externals 属性来帮忙：</p>
+<pre><code>{
+    externals: {
+        // require(&quot;jquery&quot;) 是引用自外部模块的
+        // 对应全局变量 jQuery
+        &quot;jquery&quot;: &quot;jQuery&quot;
+    }
+}
+</code></pre><p>需要留意的是，得确保 CDN 文件必须在 webpack 打包文件引入之前先引入。
+我们倒也可以使用 script.js 在脚本中来加载我们的模块：</p>
+<pre><code>var $script = require(&quot;scriptjs&quot;);
+$script(&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js&quot;, function() {
+  $(&#39;body&#39;).html(&#39;It works!&#39;)
+});
+</code></pre><h5>五. 与 grunt/gulp 配合</h5>
+<p>以 gulp 为示例，我们可以这样混搭：</p>
+<pre><code>gulp.task(&quot;webpack&quot;, function(callback) {
+    // run webpack
+    webpack({
+        // configuration
+    }, function(err, stats) {
+        if(err) throw new gutil.PluginError(&quot;webpack&quot;, err);
+        gutil.log(&quot;[webpack]&quot;, stats.toString({
+            // output options
+        }));
+        callback();
+    });
+});
+</code></pre><p>当然我们只需要把配置写到 webpack({ ... }) 中去即可，无须再写 webpack.config.js 了。
+更多参照信息请参阅：grunt配置 / gulp配置 。</p>
+<h5>六. React 相关</h5>
+<p>⑴ 推荐使用 npm install react 的形式来安装并引用 React 模块，而不是直接使用编译后的 react.js，这样最终编译出来的 React 部分的脚本会减少 10-20 kb左右的大小。
+⑵ react-hot-loader 是一款非常好用的 React 热插拔的加载插件，通过它可以实现修改-运行同步的效果，配合 webpack-dev-server 使用更佳！</p>
+</style></p>
                                 
                                 </section>
                             
@@ -998,7 +1277,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"webpack项目搭建","level":"1.5.1","depth":2,"next":{"title":"项目的搭建","level":"1.5.2","depth":2,"path":"React/react.md","ref":"React/react.md","articles":[]},"previous":{"title":"React","level":"1.5","depth":1,"path":"React/README.md","ref":"React/README.md","articles":[{"title":"webpack项目搭建","level":"1.5.1","depth":2,"path":"React/webpack.md","ref":"React/webpack.md","articles":[]},{"title":"项目的搭建","level":"1.5.2","depth":2,"path":"React/react.md","ref":"React/react.md","articles":[]},{"title":"React-Router使用入门","level":"1.5.3","depth":2,"path":"React/router.md","ref":"React/router.md","articles":[]},{"title":"Redux使用入门","level":"1.5.4","depth":2,"path":"React/redux.md","ref":"React/redux.md","articles":[]},{"title":"Mobx使用入门","level":"1.5.5","depth":2,"path":"React/mobx.md","ref":"React/mobx.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"React/webpack.md","mtime":"2017-05-25T16:31:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-25T16:37:01.017Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"webpack项目搭建","level":"1.5.1","depth":2,"next":{"title":"项目的搭建","level":"1.5.2","depth":2,"path":"React/react.md","ref":"React/react.md","articles":[]},"previous":{"title":"React","level":"1.5","depth":1,"path":"React/README.md","ref":"React/README.md","articles":[{"title":"webpack项目搭建","level":"1.5.1","depth":2,"path":"React/webpack.md","ref":"React/webpack.md","articles":[]},{"title":"项目的搭建","level":"1.5.2","depth":2,"path":"React/react.md","ref":"React/react.md","articles":[]},{"title":"React-Router使用入门","level":"1.5.3","depth":2,"path":"React/router.md","ref":"React/router.md","articles":[]},{"title":"Redux使用入门","level":"1.5.4","depth":2,"path":"React/redux.md","ref":"React/redux.md","articles":[]},{"title":"Mobx使用入门","level":"1.5.5","depth":2,"path":"React/mobx.md","ref":"React/mobx.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"React/webpack.md","mtime":"2017-05-26T01:57:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-26T01:47:46.411Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
