@@ -1,0 +1,42 @@
+{
+  "title": "gitbook学习笔记",
+  "description": "用于前端知识点总结。",
+  "language": "zh-hans",
+  "plugins": [
+    "disqus",
+    "github",
+    "editlink",
+    "prism",
+    "-highlight",
+    "baidu",
+    "splitter",
+    "sitemap",
+    "splitter",
+    "toggle-chapters",
+    "sectionx",
+    "-search",
+    "search-pro"
+  ],
+  "pluginsConfig": {
+    "disqus": {
+      "shortName": "gitbook"
+    },
+    "github": {
+      "url": "https://github.com/yihaoliu"
+    },
+    "editlink": {
+      "base": "",
+      "label": "编辑本页"
+    },
+    "baidu": {
+        "token": "a9787f0ab45d5e237bab522431d0a7ec"
+    },
+    "sitemap": {
+        "hostname": "http://zhaoda.net/"
+    },
+    "search-pro": {
+        "cutWordLib": "nodejieba",
+        "defineWord" : ["Gitbook Use"]
+    }
+  }
+}
