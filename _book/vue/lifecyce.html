@@ -1,0 +1,1377 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vue生命周期 · gitbook学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../specialEffects/" />
+    
+    
+    <link rel="prev" href="vuex.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../javaScript/">
+            
+                <a href="../javaScript/">
+            
+                    
+                    javaScript深入浅出
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../javaScript/mouse.html">
+            
+                <a href="../javaScript/mouse.html">
+            
+                    
+                    获取鼠标的坐标位置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../javaScript/promise.html">
+            
+                <a href="../javaScript/promise.html">
+            
+                    
+                    promise原理解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../javaScript/router.html">
+            
+                <a href="../javaScript/router.html">
+            
+                    
+                    路由实现原理解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../javaScript/toBottom.html">
+            
+                <a href="../javaScript/toBottom.html">
+            
+                    
+                    滚到底部加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../javaScript/prototype.html">
+            
+                <a href="../javaScript/prototype.html">
+            
+                    
+                    原型到原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../javaScript/context.html">
+            
+                <a href="../javaScript/context.html">
+            
+                    
+                    执行上下文
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../React/">
+            
+                <a href="../React/">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../React/webpack.html">
+            
+                <a href="../React/webpack.html">
+            
+                    
+                    webpack项目搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../React/react.html">
+            
+                <a href="../React/react.html">
+            
+                    
+                    React项目的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../React/router.html">
+            
+                <a href="../React/router.html">
+            
+                    
+                    React-Router使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../React/redux.html">
+            
+                <a href="../React/redux.html">
+            
+                    
+                    Redux使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../React/mobx.html">
+            
+                <a href="../React/mobx.html">
+            
+                    
+                    Mobx使用入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../React/lifecyce.html">
+            
+                <a href="../React/lifecyce.html">
+            
+                    
+                    React生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="start.html">
+            
+                <a href="start.html">
+            
+                    
+                    项目的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="router.html">
+            
+                <a href="router.html">
+            
+                    
+                    vue-router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="lifecyce.html">
+            
+                <a href="lifecyce.html">
+            
+                    
+                    vue生命周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../specialEffects/">
+            
+                <a href="../specialEffects/">
+            
+                    
+                    特效案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../specialEffects/section1.html">
+            
+                <a href="../specialEffects/section1.html">
+            
+                    
+                    css特效
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../specialEffects/section2.html">
+            
+                <a href="../specialEffects/section2.html">
+            
+                    
+                    svg特效
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../CSS/">
+            
+                <a href="../CSS/">
+            
+                    
+                    CSS实现的一些效果
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../CSS/ellipsis.html">
+            
+                <a href="../CSS/ellipsis.html">
+            
+                    
+                    CSS实现单行多行添加省略号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../CSS/layout.html">
+            
+                <a href="../CSS/layout.html">
+            
+                    
+                    CSS常见布局解决方案
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../conclusion/">
+            
+                <a href="../conclusion/">
+            
+                    
+                    开发总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../conclusion/phone.html">
+            
+                <a href="../conclusion/phone.html">
+            
+                    
+                    手机端开发注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../conclusion/section2.html">
+            
+                <a href="../conclusion/section2.html">
+            
+                    
+                    电脑桌面应用开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../node/">
+            
+                <a href="../node/">
+            
+                    
+                    node
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../node/section1.html">
+            
+                <a href="../node/section1.html">
+            
+                    
+                    node简单爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../node/section2.html">
+            
+                <a href="../node/section2.html">
+            
+                    
+                    node-express
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../three/">
+            
+                <a href="../three/">
+            
+                    
+                    three
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../three/section1.html">
+            
+                <a href="../three/section1.html">
+            
+                    
+                    Three.js常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../three/section2.html">
+            
+                <a href="../three/section2.html">
+            
+                    
+                    摄像机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../three/section3.html">
+            
+                <a href="../three/section3.html">
+            
+                    
+                    核心方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../three/section4.html">
+            
+                <a href="../three/section4.html">
+            
+                    
+                    灯光
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../three/section5.html">
+            
+                <a href="../three/section5.html">
+            
+                    
+                    加载器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../three/section6.html">
+            
+                <a href="../three/section6.html">
+            
+                    
+                    材质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../three/section7.html">
+            
+                <a href="../three/section7.html">
+            
+                    
+                    数学函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../three/section8.html">
+            
+                <a href="../three/section8.html">
+            
+                    
+                    Three.js 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../three/section9.html">
+            
+                <a href="../three/section9.html">
+            
+                    
+                    渲染器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../three/section10.html">
+            
+                <a href="../three/section10.html">
+            
+                    
+                    渲染器 / 着色器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../three/section11.html">
+            
+                <a href="../three/section11.html">
+            
+                    
+                    渲染器 / WebGL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../three/section12.html">
+            
+                <a href="../three/section12.html">
+            
+                    
+                    渲染器 / WebGL / 插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../three/section14.html">
+            
+                <a href="../three/section14.html">
+            
+                    
+                    场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../three/section15.html">
+            
+                <a href="../three/section15.html">
+            
+                    
+                    其它
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../three/section16.html">
+            
+                <a href="../three/section16.html">
+            
+                    
+                    其它 / 动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../three/section17.html">
+            
+                <a href="../three/section17.html">
+            
+                    
+                    其它 / 核心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../three/section18.html">
+            
+                <a href="../three/section18.html">
+            
+                    
+                    其它 / 曲线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../three/section19.html">
+            
+                <a href="../three/section19.html">
+            
+                    
+                    其它 / 几何形状
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../three/section20.html">
+            
+                <a href="../three/section20.html">
+            
+                    
+                    其它 / 帮助
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../three/section21.html">
+            
+                <a href="../three/section21.html">
+            
+                    
+                    其它 / 对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../jsMetting/">
+            
+                <a href="../jsMetting/">
+            
+                    
+                    前端面试题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../jsMetting/JavaScript.html">
+            
+                <a href="../jsMetting/JavaScript.html">
+            
+                    
+                    JavaScript面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../jsMetting/react.html">
+            
+                <a href="../jsMetting/react.html">
+            
+                    
+                    react面试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../IDE/sublime/">
+            
+                <a href="../IDE/sublime/">
+            
+                    
+                    开发工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../IDE/">
+            
+                <a href="../IDE/">
+            
+                    
+                    sublime
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1.1" data-path="../IDE/sublime/sublimeKey.html">
+            
+                <a href="../IDE/sublime/sublimeKey.html">
+            
+                    
+                    sublimeKey
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.2" data-path="../IDE/sublime/sublimePlug.html">
+            
+                <a href="../IDE/sublime/sublimePlug.html">
+            
+                    
+                    sublimePlug
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../IDE/atom.html">
+            
+                <a href="../IDE/atom.html">
+            
+                    
+                    atom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../IDE/vim.html">
+            
+                <a href="../IDE/vim.html">
+            
+                    
+                    vim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../IDE/vsCode.html">
+            
+                <a href="../IDE/vsCode.html">
+            
+                    
+                    vsCode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../IDE/Git.html">
+            
+                <a href="../IDE/Git.html">
+            
+                    
+                    Git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../help/">
+            
+                <a href="../help/">
+            
+                    
+                    帮助文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../help/Markdown.html">
+            
+                <a href="../help/Markdown.html">
+            
+                    
+                    Markdown
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../recommended/">
+            
+                <a href="../recommended/">
+            
+                    
+                    推荐网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vue生命周期</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vue&#x751F;&#x547D;&#x5468;&#x671F;">vue&#x751F;&#x547D;&#x5468;&#x671F;</h1>
+<h3 id="&#x4E0B;&#x9762;&#x7684;&#x8868;&#x683C;&#x662F;10&#x7248;&#x672C;&#x4E0E;20&#x7248;&#x672C;&#x7684;&#x5BF9;&#x6BD4;">&#x4E0B;&#x9762;&#x7684;&#x8868;&#x683C;&#x662F;1.0+&#x7248;&#x672C;&#x4E0E;2.0+&#x7248;&#x672C;&#x7684;&#x5BF9;&#x6BD4;</h3>
+<table>
+<thead>
+<tr>
+<th>vue1.0+</th>
+<th>vue2.0</th>
+<th style="text-align:center">&#x89E3;&#x91CA;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init</td>
+<td>beforeCreate</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x521A;&#x88AB;&#x521B;&#x5EFA;&#xFF0C;&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF0C;&#x5982;data&#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>created</td>
+<td>created</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x5B8C;&#x6210;&#xFF0C;&#x5C5E;&#x6027;&#x5DF2;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F46;DOM&#x8FD8;&#x6CA1;&#x751F;&#x6210;,$el&#x5C5E;&#x6027;&#x8FD8;&#x4E0D;&#x5B58;&#x5728;</td>
+</tr>
+<tr>
+<td>beforeCompile</td>
+<td>beforeMount</td>
+<td style="text-align:center">&#x6A21;&#x677F;&#x7F16;&#x8BD1;/&#x6302;&#x8F7D;&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td>compiled</td>
+<td>mounted</td>
+<td style="text-align:center">&#x6A21;&#x677F;&#x7F16;&#x8BD1;/&#x6302;&#x8F7D;&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td>ready</td>
+<td>mounted</td>
+<td style="text-align:center">&#x6A21;&#x677F;&#x7F16;&#x8BD1;/&#x6302;&#x8F7D;&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>beforeUpdate</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>updated</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>activated</td>
+<td style="text-align:center">for keep-alive&#xFF0C;&#x7EC4;&#x4EF6;&#x88AB;&#x6FC0;&#x6D3B;&#x65F6;&#x8C03;&#x7528;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>deactivated</td>
+<td style="text-align:center">for keep-alive&#xFF0C;&#x7EC4;&#x4EF6;&#x88AB;&#x79FB;&#x9664;&#x65F6;&#x8C03;&#x7528;</td>
+</tr>
+<tr>
+<td>activated</td>
+<td>-</td>
+<td style="text-align:center">&#x4E0D;&#x505A;&#x89E3;&#x91CA;</td>
+</tr>
+<tr>
+<td>detached</td>
+<td>-</td>
+<td style="text-align:center">&#x4E0D;&#x505A;&#x89E3;&#x91CA;</td>
+</tr>
+<tr>
+<td>beforeDestroy</td>
+<td>beforeDestroy</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x9500;&#x6BC1;&#x524D;&#x8C03;&#x7528;</td>
+</tr>
+<tr>
+<td>destroyed</td>
+<td>destroyed</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x9500;&#x6BC1;&#x540E;&#x8C03;&#x7528;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x7528;&#x4EE3;&#x7801;&#x8BF4;&#x6E05;&#x8FD9;&#x4E9B;">&#x7528;&#x4EE3;&#x7801;&#x8BF4;&#x6E05;&#x8FD9;&#x4E9B;</h3>
+<pre class="language-"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://cdn.jsdelivr.net/vue/2.1.3/vue.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>{{ message }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+  var app = new Vue({
+      el: &apos;#app&apos;,
+      data: {
+          message : &quot;xuxiao is boy&quot;
+      },
+       beforeCreate: function () {
+                console.group(&apos;beforeCreate &#x521B;&#x5EFA;&#x524D;&#x72B6;&#x6001;===============&#x300B;&apos;);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot; , &quot;el     : &quot; + this.$el); //undefined
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //undefined
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)  
+        },
+        created: function () {
+            console.group(&apos;created &#x521B;&#x5EFA;&#x5B8C;&#x6BD5;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //undefined
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+        },
+        beforeMount: function () {
+            console.group(&apos;beforeMount &#x6302;&#x8F7D;&#x524D;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + (this.$el)); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+            console.log(this.$el);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;  
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;  
+        },
+        mounted: function () {
+            console.group(&apos;mounted &#x6302;&#x8F7D;&#x7ED3;&#x675F;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+            console.log(this.$el);    
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //&#x5DF2;&#x88AB;&#x521D;&#x59CB;&#x5316;
+        },
+        beforeUpdate: function () {
+            console.group(&apos;beforeUpdate &#x66F4;&#x65B0;&#x524D;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);
+            console.log(this.$el);   
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message);
+        },
+        updated: function () {
+            console.group(&apos;updated &#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);
+            console.log(this.$el);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message);
+        },
+        beforeDestroy: function () {
+            console.group(&apos;beforeDestroy &#x9500;&#x6BC1;&#x524D;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);
+            console.log(this.$el);    
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message);
+        },
+        destroyed: function () {
+            console.group(&apos;destroyed &#x9500;&#x6BC1;&#x5B8C;&#x6210;&#x72B6;&#x6001;===============&#x300B;&apos;);
+            console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);
+            console.log(this.$el);  
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data);
+               console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)
+        }
+    })
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><h3 id="&#x9644;&#x4E00;&#x5F20;&#x56FE;&#x540E;&#x9762;&#x6162;&#x6162;&#x7406;&#x89E3;">&#x9644;&#x4E00;&#x5F20;&#x56FE;&#x540E;&#x9762;&#x6162;&#x6162;&#x7406;&#x89E3;</h3>
+<p><img src="images/lifecyce/lifecyce.png" alt="&#x751F;&#x547D;&#x5468;&#x671F;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="vuex.html" class="navigation navigation-prev " aria-label="Previous page: vuex">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../specialEffects/" class="navigation navigation-next " aria-label="Next page: 特效案例">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vue生命周期","level":"1.4.4","depth":2,"next":{"title":"特效案例","level":"1.5","depth":1,"path":"specialEffects/README.md","ref":"specialEffects/README.md","articles":[{"title":"css特效","level":"1.5.1","depth":2,"path":"specialEffects/section1.md","ref":"specialEffects/section1.md","articles":[]},{"title":"svg特效","level":"1.5.2","depth":2,"path":"specialEffects/section2.md","ref":"specialEffects/section2.md","articles":[]}]},"previous":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap","splitter","toggle-chapters","sectionx","-search","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"gitbook"},"github":{"url":"https://github.com/yihaoliu"},"editlink":{"label":"编辑本页","multilingual":false,"base":""},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook学习笔记","language":"zh-hans","gitbook":"*","description":"用于前端知识点总结。"},"file":{"path":"vue/lifecyce.md","mtime":"2017-06-04T06:01:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-04T05:20:22.112Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

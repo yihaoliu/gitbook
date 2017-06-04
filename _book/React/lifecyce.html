@@ -330,9 +330,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../vue/section1.html">
+        <li class="chapter " data-level="1.4.1" data-path="../vue/start.html">
             
-                <a href="../vue/section1.html">
+                <a href="../vue/start.html">
             
                     
                     项目的搭建
@@ -343,9 +343,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../vue/section2.html">
+        <li class="chapter " data-level="1.4.2" data-path="../vue/router.html">
             
-                <a href="../vue/section2.html">
+                <a href="../vue/router.html">
             
                     
                     vue-router
@@ -356,12 +356,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../vue/section3.html">
+        <li class="chapter " data-level="1.4.3" data-path="../vue/vuex.html">
             
-                <a href="../vue/section3.html">
+                <a href="../vue/vuex.html">
             
                     
                     vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../vue/lifecyce.html">
+            
+                <a href="../vue/lifecyce.html">
+            
+                    
+                    vue生命周期
             
                 </a>
             
@@ -1085,6 +1098,57 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="react&#x751F;&#x547D;&#x5468;&#x671F;">React&#x751F;&#x547D;&#x5468;&#x671F;</h1>
+<h3 id="&#x7528;&#x4E00;&#x4E2A;&#x8868;&#x683C;&#x8868;&#x793A;&#x751F;&#x547D;&#x5468;&#x671F;">&#x7528;&#x4E00;&#x4E2A;&#x8868;&#x683C;&#x8868;&#x793A;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th style="text-align:center">&#x89E3;&#x91CA;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultProps</td>
+<td style="text-align:center">&#x4F5C;&#x7528;&#x4E8E;&#x7EC4;&#x4EF6;&#x7C7B;&#xFF0C;&#x53EA;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7684;props&#xFF0C;&#x5BF9;&#x4E8E;&#x5F15;&#x7528;&#x503C;&#xFF0C;&#x4F1A;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x5171;&#x4EAB;</td>
+</tr>
+<tr>
+<td>getInitialState</td>
+<td style="text-align:center">&#x4F5C;&#x7528;&#x4E8E;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5728;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x65F6;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x7528;&#x4E8E;&#x521D;&#x59CB;&#x5316;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;state&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;this.props</td>
+</tr>
+<tr>
+<td>componentWillMount</td>
+<td style="text-align:center">&#x5728;&#x5B8C;&#x6210;&#x9996;&#x6B21;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x4ECD;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7EC4;&#x4EF6;&#x7684;state</td>
+</tr>
+<tr>
+<td>render</td>
+<td style="text-align:center">&#x5FC5;&#x9009;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x521B;&#x5EFA;&#x865A;&#x62DF;DOM&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x7279;&#x6B8A;&#x7684;&#x89C4;&#x5219;&#xFF1A; 1.&#x53EA;&#x80FD;&#x901A;&#x8FC7;this.props&#x548C;this.state&#x8BBF;&#x95EE;&#x6570;&#x636E;  2.&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;null&#x3001;false&#x6216;&#x4EFB;&#x4F55;React&#x7EC4;&#x4EF6;  3.&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x9876;&#x7EA7;&#x7EC4;&#x4EF6;&#xFF08;&#x4E0D;&#x80FD;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#xFF09; 4.&#x4E0D;&#x80FD;&#x6539;&#x53D8;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;   5.&#x4E0D;&#x80FD;&#x4FEE;&#x6539;DOM&#x7684;&#x8F93;&#x51FA;</td>
+</tr>
+<tr>
+<td>componentDidMount</td>
+<td style="text-align:center">&#x771F;&#x5B9E;&#x7684;DOM&#x88AB;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x53EF;&#x901A;&#x8FC7;this.getDOMNode()&#x8BBF;&#x95EE;&#x5230;&#x771F;&#x5B9E;&#x7684;DOM&#x5143;&#x7D20;&#x3002;&#x6B64;&#x65F6;&#x5DF2;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7C7B;&#x5E93;&#x6765;&#x64CD;&#x4F5C;&#x8FD9;&#x4E2A;DOM&#x3002;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E2D;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;</td>
+</tr>
+<tr>
+<td>componentWillReceiveProps</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x63A5;&#x6536;&#x5230;&#x65B0;&#x7684;props&#x65F6;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;nextProps&#x4F7F;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x7EC4;&#x4EF6;props&#x53CA;state</td>
+</tr>
+<tr>
+<td>shouldComponentUpdate</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x5E94;&#x5F53;&#x6E32;&#x67D3;&#x65B0;&#x7684;props&#x6216;state&#xFF0C;&#x8FD4;&#x56DE;false&#x8868;&#x793A;&#x8DF3;&#x8FC7;&#x540E;&#x7EED;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;bug&#x3002;&#x5728;&#x51FA;&#x73B0;&#x5E94;&#x7528;&#x7684;&#x74F6;&#x9888;&#x65F6;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x9002;&#x5F53;&#x7684;&#x4F18;&#x5316;</td>
+</tr>
+<tr>
+<td>componentWillUpdate</td>
+<td style="text-align:center">&#x63A5;&#x6536;&#x5230;&#x65B0;&#x7684;props&#x6216;&#x8005;state&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x5141;&#x8BB8;&#x66F4;&#x65B0;props&#x6216;state</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td style="text-align:center">&#x5B8C;&#x6210;&#x6E32;&#x67D3;&#x65B0;&#x7684;props&#x6216;&#x8005;state&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x65B0;&#x7684;DOM&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td style="text-align:center">&#x7EC4;&#x4EF6;&#x88AB;&#x79FB;&#x9664;&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x505A;&#x4E00;&#x4E9B;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#xFF0C;&#x5728;componentDidMount&#x65B9;&#x6CD5;&#x4E2D;&#x6DFB;&#x52A0;&#x7684;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x90FD;&#x9700;&#x8981;&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x64A4;&#x9500;&#xFF0C;&#x6BD4;&#x5982;&#x521B;&#x5EFA;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x6216;&#x6DFB;&#x52A0;&#x7684;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;</td>
+</tr>
+</tbody>
+</table>
 <h2 id="&#x5B9E;&#x4F8B;&#x5316;">&#x5B9E;&#x4F8B;&#x5316;</h2>
 <h5 id="&#x9996;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;">&#x9996;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;</h5>
 <pre class="language-"><code>getDefaultProps
@@ -1185,7 +1249,7 @@ componentDidUpdate
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"React生命周期","level":"1.3.6","depth":2,"next":{"title":"vue","level":"1.4","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"项目的搭建","level":"1.4.1","depth":2,"path":"vue/section1.md","ref":"vue/section1.md","articles":[]},{"title":"vue-router","level":"1.4.2","depth":2,"path":"vue/section2.md","ref":"vue/section2.md","articles":[]},{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/section3.md","ref":"vue/section3.md","articles":[]}]},"previous":{"title":"Mobx使用入门","level":"1.3.5","depth":2,"path":"React/mobx.md","ref":"React/mobx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap","splitter","toggle-chapters","sectionx","-search","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"gitbook"},"github":{"url":"https://github.com/yihaoliu"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/zhaoda/webpack-handbook/blob/master/content"},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook学习笔记","language":"zh-hans","gitbook":"*","description":"用于前端知识点总结。"},"file":{"path":"React/lifecyce.md","mtime":"2017-05-27T07:55:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-02T15:20:04.451Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"React生命周期","level":"1.3.6","depth":2,"next":{"title":"vue","level":"1.4","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"项目的搭建","level":"1.4.1","depth":2,"path":"vue/start.md","ref":"vue/start.md","articles":[]},{"title":"vue-router","level":"1.4.2","depth":2,"path":"vue/router.md","ref":"vue/router.md","articles":[]},{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},{"title":"vue生命周期","level":"1.4.4","depth":2,"path":"vue/lifecyce.md","ref":"vue/lifecyce.md","articles":[]}]},"previous":{"title":"Mobx使用入门","level":"1.3.5","depth":2,"path":"React/mobx.md","ref":"React/mobx.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap","splitter","toggle-chapters","sectionx","-search","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"gitbook"},"github":{"url":"https://github.com/yihaoliu"},"editlink":{"label":"编辑本页","multilingual":false,"base":""},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook学习笔记","language":"zh-hans","gitbook":"*","description":"用于前端知识点总结。"},"file":{"path":"React/lifecyce.md","mtime":"2017-06-04T06:00:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-04T05:20:22.112Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
