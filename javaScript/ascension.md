@@ -62,7 +62,7 @@ foo = function() {
   var bar = foo;
 }
 ```
-或者是下面例子
+或者是转化成下面的代码
 ```
 var foo;
 foo(); // TypeError
@@ -71,3 +71,33 @@ foo = function() {
   var bar = ...self...;
 }
 ```
+再看下面的例子
+```
+foo(); // 3
+function foo() {
+  console.log( 1 );
+}
+var foo = function() {
+  console.log( 2 );
+};
+function foo() {
+  console.log( 3 );
+}
+foo(); //2
+```
+上面的代码可以转化下面的代码
+```
+var foo;
+function foo() {
+  console.log( 1 );
+}
+function foo() {
+  console.log( 3 );
+}
+foo(); // 3
+var foo = function() {
+  console.log( 2 );
+};
+foo(); //2
+```
+#####非常有意思的现象
