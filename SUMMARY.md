@@ -11,6 +11,7 @@
     * [你不知道的js（上）](javaScript/youDontKnowJs.md)
     * [柯里化函数](javaScript/Currying.md)
     * [变量提升与函数提升](javaScript/ascension.md)
+    * [webSocket](javaScript/webSocket.md)
 * [React](React/README.md)
     * [webpack项目搭建](React/webpack.md)
     * [React项目的搭建](React/react.md)
