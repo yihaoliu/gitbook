@@ -12,6 +12,7 @@
     * [柯里化函数](javaScript/Currying.md)
     * [变量提升与函数提升](javaScript/ascension.md)
     * [webSocket](javaScript/webSocket.md)
+    * [javaScript各种错误类型](javaScript/error.md)
 * [React](React/README.md)
     * [webpack项目搭建](React/webpack.md)
     * [React项目的搭建](React/react.md)
