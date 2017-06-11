@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>获取鼠标的坐标位置 · gitbook学习笔记</title>
+        <title>javaScript的this · gitbook学习笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="promise.html" />
+    <link rel="next" href="../React/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="error.html" />
     
 
     </head>
@@ -136,7 +136,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="mouse.html">
+        <li class="chapter " data-level="1.2.1" data-path="mouse.html">
             
                 <a href="mouse.html">
             
@@ -279,7 +279,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.12" data-path="this.html">
+        <li class="chapter active" data-level="1.2.12" data-path="this.html">
             
                 <a href="this.html">
             
@@ -1224,7 +1224,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >获取鼠标的坐标位置</a>
+        <a href=".." >javaScript的this</a>
     </h1>
 </div>
 
@@ -1239,82 +1239,199 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x7684;&#x4F4D;&#x7F6E;">&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x7684;&#x4F4D;&#x7F6E;</h3>
-<h4 id="&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x7684;&#x4F4D;&#x7F6E;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x591A;&#x4E2A;&#x60C5;&#x51B5;">&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x7684;&#x4F4D;&#x7F6E;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x591A;&#x4E2A;&#x60C5;&#x51B5;</h4>
+                                <h1 id="javascript&#x7684;this">javaScript&#x7684;this</h1>
+<h3 id="this&#x7684;&#x5E38;&#x89C1;&#x7ED1;&#x5B9A;&#x5F62;&#x5F0F;">this&#x7684;&#x5E38;&#x89C1;&#x7ED1;&#x5B9A;&#x5F62;&#x5F0F;</h3>
+<p>1.&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;
+2.&#x9690;&#x5F0F;&#x7ED1;&#x5B9A;
+3.&#x663E;&#x793A;&#x7ED1;&#x5B9A;
+4.new&#x7ED1;&#x5B9A;</p>
+<blockquote>
+<p>&#x5728;&#x5F04;&#x6E05;&#x695A;&#x8FD9;&#x4E9B;&#x7ED1;&#x5B9A;&#x4E4B;&#x524D;&#x6765;&#x5F04;&#x6E05;&#x695A;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;&#x8C03;&#x7528;&#x6808;&#x548C;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;</p>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x8C03;&#x7528;&#x6808;&#x548C;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;:</p>
+<pre class="language-"><code>function baz() {
+// &#x5F53;&#x524D;&#x8C03;&#x7528;&#x6808;&#x662F;:baz
+// &#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;
+         console.log( &quot;baz&quot; );
+bar(); // &lt;-- bar &#x7684;&#x8C03;&#x7528;&#x4F4D;&#x7F6E; }
+function bar() {
+// &#x5F53;&#x524D;&#x8C03;&#x7528;&#x6808;&#x662F; baz -&gt; bar
+// &#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;&#x5728; baz &#x4E2D;
+         console.log( &quot;bar&quot; );
+foo(); // &lt;-- foo &#x7684;&#x8C03;&#x7528;&#x4F4D;&#x7F6E; }
+function foo() {
+// &#x5F53;&#x524D;&#x8C03;&#x7528;&#x6808;&#x662F; baz -&gt; bar -&gt; foo // &#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;&#x5728; bar &#x4E2D;
+         console.log( &quot;foo&quot; );
+     }
+baz(); // &lt;-- baz &#x7684;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x8BA9;&#x6211;&#x4EEC;&#x521D;&#x6B65;&#x660E;&#x767D;&#x4E86;&#x8C03;&#x7528;&#x6808;&#xFF0C;&#x548C;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;</p>
+<h3 id="&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;&#x6307;&#x7ED1;&#x5B9A;&#x5168;&#x5C40;&#x53D8;&#x91CF;">&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;(&#x6307;&#x7ED1;&#x5B9A;&#x5168;&#x5C40;&#x53D8;&#x91CF;)</h3>
+<p>&#x601D;&#x8003;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code>function foo() {
+   console.log( this.a );
+}
+var a = 2;
+foo(); // 2
+</code></pre><p>&#x4E0A;&#x9762;&#x51FD;&#x6570;&#x7684;&#x5F53;&#x524D;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;&#x662F;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6240;&#x4EE5;this&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;&#x7684;&#x662F;window
+<em>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;(strict mode)&#xFF0C;&#x90A3;&#x4E48;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x5C06;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;&#xFF0C;&#x56E0;&#x6B64; this &#x4F1A;&#x7ED1;&#x5B9A; &#x5230; undefined:</em></p>
+<pre class="language-"><code>function foo() { &quot;use strict&quot;;
+         console.log( this.a );
+     }
+var a = 2;
+foo(); // TypeError: this is undefined
+</code></pre><h3 id="&#x9690;&#x5F0F;&#x7ED1;&#x5B9A;">&#x9690;&#x5F0F;&#x7ED1;&#x5B9A;</h3>
+<p>&#x5728;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x7684;&#x7ED3;&#x6784;&#x4E2D;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x4F1A;&#x78B0;&#x5230;&#x9690;&#x5F0F;&#x7ED1;&#x5B9A;
+&#x5148;&#x6765;&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre class="language-"><code>function foo() {
+  console.log( this.a );
+}
+var obj = {
+  a: 2,
+  foo: foo
+};
+obj.foo(); // 2
+</code></pre><p>foo&#x51FD;&#x6570;&#x7ED1;&#x5B9A;&#x5728;&#x4E86;obj&#x4E0B;&#x8FB9;&#x7684;foo&#x5C5E;&#x6027;&#x4E0A;&#x8FB9;&#xFF0C;&#x6240;&#x4EE5;&#x4ED6;&#x7684;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;&#x5728;obj&#x4E2D;&#x6240;&#x4EE5;this&#x6307;&#x5411;obj&#x3002;</p>
+<p><em>&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x94FE;&#x4E2D;&#x53EA;&#x6709;&#x6700;&#x9876;&#x5C42;&#x6216;&#x8005;&#x8BF4;&#x6700;&#x540E;&#x4E00;&#x5C42;&#x4F1A;&#x5F71;&#x54CD;&#x8C03;&#x7528;&#x4F4D;&#x7F6E;</em></p>
+<pre class="language-"><code>function foo() {
+   console.log( this.a );
+}
+var obj2 = {
+  a: 42,
+  foo: foo
+};
+var obj1 = {
+   a: 2,
+   obj2: obj2
+};
+obj1.obj2.foo(); // 42
+</code></pre><h3 id="&#x9690;&#x5F0F;&#x4E22;&#x5931;">&#x9690;&#x5F0F;&#x4E22;&#x5931;</h3>
+<p>&#x770B;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre class="language-"><code>function foo() {
+  console.log( this.a );
+}
+var obj = {
+  a: 2,
+  foo: foo
+};
+var bar = obj.foo; // &#x51FD;&#x6570;&#x522B;&#x540D;!
+var a = &quot;oops, global&quot;; // a &#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027; bar(); // &quot;oops, global&quot;
+</code></pre><p>&#x662F;&#x4E0D;&#x662F;&#x7ED3;&#x679C;&#x8BA9;&#x4EBA;&#x8BE7;&#x5F02;
+&#x867D;&#x7136; bar &#x662F; obj.foo &#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5B83;&#x5F15;&#x7528;&#x7684;&#x662F; foo &#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;&#x56E0;&#x6B64;&#x6B64;&#x65F6;&#x7684; bar() &#x5176;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x4FEE;&#x9970;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x7528;&#x4E86;&#x9ED8;&#x8BA4;&#x7ED1;&#x5B9A;&#x3002;&#xFF08;&#x8FD9;&#x662F;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x7684;JavaScript&#x4E0A;&#x4E2D;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x611F;&#x89C9;&#x6CA1;&#x6709;&#x8BF4;&#x670D;&#x529B;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x67E5;&#x660E;&#x771F;&#x8C61;&#xFF09;</p>
+<p><em>&#x4EE5;&#x5F62;&#x53C2;&#x4F20;&#x5165;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x9690;&#x5F0F;&#x8D4B;&#x503C;</em></p>
+<pre class="language-"><code>function foo() {
+  console.log( this.a );
+}
+function doFoo(fn) {
+  // fn &#x5176;&#x5B9E;&#x5F15;&#x7528;&#x7684;&#x662F; foo
+  fn();
+  // &lt;-- &#x8C03;&#x7528;&#x4F4D;&#x7F6E;!
+}
+var obj = {
+  a: 2,
+  foo: foo
+};
+var a = &quot;oops, global&quot;; // a &#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;
+doFoo( obj.foo ); // &quot;oops, global&quot;
+</code></pre><p>&#x5982;&#x679C;&#x628A;&#x51FD;&#x6570;&#x4F20;&#x5165;&#x8BED;&#x8A00;&#x5185;&#x7F6E;&#x7684;&#x51FD;&#x6570;&#x800C;&#x4E0D;&#x662F;&#x4F20;&#x5165;&#x4F60;&#x81EA;&#x5DF1;&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x4F1A;&#x9690;&#x5F0F;&#x8D4B;&#x503C;</p>
+<pre class="language-"><code>function foo() {
+  console.log( this.a );
+}
+var obj = { a: 2,
+foo: foo };
+var a = &quot;oops, global&quot;; // a &#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;
+setTimeout( obj.foo, 100 ); // &quot;oops, global&quot;
+</code></pre><p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;&#x4E0D;&#x505A;&#x663E;&#x793A;&#x7ED1;&#x5B9A;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x5371;&#x9669;&#x7684;&#x800C;&#x4E14;&#x9690;&#x5F0F;&#x7ED1;&#x5B9A;&#x8FD8;&#x662F;&#x5F88;&#x5371;&#x9669;&#x7684;</p>
+<h3 id="&#x663E;&#x5F0F;&#x7ED1;&#x5B9A;">&#x663E;&#x5F0F;&#x7ED1;&#x5B9A;</h3>
 <ol>
-<li><p>&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x76F8;&#x5BF9;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x4F4D;&#x7F6E;</p>
-<pre class="language-"><code>let x = event.clientX;
-let y = event.clientY;
-</code></pre></li>
-<li><p>&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x76F8;&#x5BF9;&#x4E8E;&#x6574;&#x4E2A;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;</p>
-<pre class="language-"><code>let x = event.pageX;
-let y = event.pageY;
-</code></pre></li>
-<li><p>&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x76F8;&#x5BF9;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;</p>
-<p>&#x8FD9;&#x4E00;&#x4E2A;&#x83B7;&#x53D6;&#x6709;&#x70B9;&#x96BE;&#x5EA6;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;JavaScript&#x539F;&#x751F;&#x65B9;&#x6CD5;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x5206;&#x6790;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#xFF0C;&#x7A81;&#x7834;&#x70B9;&#x4E00;&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x76F8;&#x5BF9;&#x5176;&#x7236;&#x672C;&#x5143;&#x7D20;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5728;event&#x7684;target&#x5C5E;&#x6027;&#x4E0B;&#x8FB9;&#x7ED1;&#x5B9A;&#x53EF;&#x4EE5;&#x5FAA;&#x73AF;&#x7684;&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</p>
-</li>
+<li>&#x786C;&#x7ED1;&#x5B9A;&#xFF08;&#x5E38;&#x7528;&#x7684;&#x662F;call&#xFF0C;apply&#xFF0C;bind&#xFF09;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x4F7F;&#x7528;</li>
 </ol>
-<pre class="language-"><code>  /*
-  *&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x8DDD;&#x79BB;
-  *&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E3A;event.target
-  */
-  function getOffset(obj){
-   var tmp={
-      val:obj.offsetParent, //&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x7236;&#x672C;
-      x:obj.offsetLeft, //&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x76F8;&#x5BF9;&#x4E8E;&#x7236;&#x672C;&#x7684;&#x6C34;&#x5E73;&#x504F;&#x79FB;
-      y:obj.offsetTop, //&#x83B7;&#x53D6;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x76F8;&#x5BF9;&#x4E8E;&#x7236;&#x672C;&#x7684;&#x5782;&#x76F4;&#x504F;&#x79FB;
-   }
-
-   while(tmp.val != null){ //&#x5F53;&#x7236;&#x7EA7;&#x4E0D;&#x5B58;&#x5728;&#x662F;&#x505C;&#x6B62;&#x5FAA;&#x73AF;
-    tmp.x += tmp.val.offsetLeft; //&#x6C34;&#x5E73;&#x504F;&#x79FB;&#x91CF;&#x7D2F;&#x8BA1;
-    tmp.y += tmp.val.offsetTop; //&#x5782;&#x76F4;&#x504F;&#x79FB;&#x91CF;&#x7D2F;&#x8BA1;
-    tmp.val = tmp.val.offsetParent; //&#x83B7;&#x53D6;&#x7236;&#x672C;
-   }
-   return tmp; //&#x8FD4;&#x56DE;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x504F;&#x79FB;&#x503C;
+<p><strong>call</strong></p>
+<pre class="language-"><code>function foo() {
+  console.log( this.a );
 }
-</code></pre><p>&#x4EE5;&#x4E0A;&#x51FD;&#x6570;&#x662F;&#x83B7;&#x53D6;&#x4E86;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x6C34;&#x5E73;&#x548C;&#x5782;&#x76F4;&#x504F;&#x79FB;&#xFF0C;&#x4F9D;&#x8D56;&#x4EE5;&#x4E0A;&#x83B7;&#x5F97;&#x7684;&#x503C;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x9F20;&#x6807;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x504F;&#x79FB;&#x51CF;&#x53BB;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x504F;&#x79FB;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre class="language-"><code>/*
-*&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x76F8;&#x5BF9;&#x4E8E;&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x79FB;
-*&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4E3A;event
-*/
-function getCurrent(elem){
-  let off = getOffset(elem.target); //&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;
-  let tmp = {};
-  return tmp = {
-    x:elem.pageX - off.x,
-    y:elem.pageY - off.y
-  }
+var obj = {
+  a:2
+};
+var bar = function() {
+  foo.call( obj );
+};
+ bar(); // 2
+ setTimeout( bar, 100 ); // 2
+// &#x786C;&#x7ED1;&#x5B9A;&#x7684; bar &#x4E0D;&#x53EF;&#x80FD;&#x518D;&#x4FEE;&#x6539;&#x5B83;&#x7684;
+this bar.call( window ); // 2
+</code></pre><p><strong>apply</strong></p>
+<pre class="language-"><code>function foo(something) {
+  console.log( this.a, something );
+  return this.a + something;
 }
-</code></pre><p>3.getBoundingClientRect&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x67D0;&#x4E2A;html&#x5143;&#x7D20;&#x76F8;&#x5BF9;&#x4E8E;&#x9875;&#x9762;&#x7684;&#x4F4D;&#x7F6E;&#x96C6;&#x5408;
-&#x6267;&#x884C; object.getBoundingClientRect();&#x4F1A;&#x5F97;&#x5230;&#x5143;&#x7D20;&#x7684;top&#x3001;right&#x3001;bottom&#x3001;left&#x3001;width&#x3001;height&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x4EE5;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#x8FD4;&#x56DE;&#x3002;</p>
-<p>&#x4E3B;&#x8981;&#x662F;left&#x548C;bottom&#x8981;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#xFF0C;left&#x662F;&#x6307;&#x53F3;&#x8FB9;&#x5230;&#x9875;&#x9762;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;bottom&#x662F;&#x6307;&#x5E95;&#x8FB9;&#x5230;&#x9875;&#x9762;&#x9876;&#x8FB9;&#x7684;&#x8DDD;&#x79BB;&#x3002;</p>
-<h6 id="ie5&#x4EE5;&#x4E0A;&#x90FD;&#x80FD;&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x662F;&#x53C8;&#x4E00;&#x70B9;&#x70B9;&#x5730;&#x65B9;&#x9700;&#x8981;&#x4FEE;&#x6B63;&#x4E00;&#x4E0B;&#xFF0C;ie67&#x7684;left&#x3001;top&#x4F1A;&#x5C11;2px&#x5E76;&#x4E14;&#x6CA1;&#x6709;width&#x3001;height&#x5C5E;&#x6027;&#x3002;">(ie5&#x4EE5;&#x4E0A;&#x90FD;&#x80FD;&#x652F;&#x6301;&#xFF0C;&#x4F46;&#x662F;&#x53C8;&#x4E00;&#x70B9;&#x70B9;&#x5730;&#x65B9;&#x9700;&#x8981;&#x4FEE;&#x6B63;&#x4E00;&#x4E0B;&#xFF0C;IE67&#x7684;left&#x3001;top&#x4F1A;&#x5C11;2px,&#x5E76;&#x4E14;&#x6CA1;&#x6709;width&#x3001;height&#x5C5E;&#x6027;&#x3002;)</h6>
-<p><img src="http://www.51xuediannao.com/uploads/allimg/160811/2340295W5-0.jpg?_=6179964" alt="&#x56FE;&#x89E3;"></p>
-<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>test<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token property">background</span><span class="token punctuation">:</span> #ddd<span class="token punctuation">;</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
-    function getObjXy(obj){
-        var xy = obj.getBoundingClientRect();
-        var top = xy.top-document.documentElement.clientTop+document.documentElement.scrollTop,//document.documentElement.clientTop &#x5728;IE67&#x4E2D;&#x59CB;&#x7EC8;&#x4E3A;2&#xFF0C;&#x5176;&#x4ED6;&#x9AD8;&#x7EA7;&#x70B9;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E3A;0
-            bottom = xy.bottom,
-            left = xy.left-document.documentElement.clientLeft+document.documentElement.scrollLeft,//document.documentElement.clientLeft &#x5728;IE67&#x4E2D;&#x59CB;&#x7EC8;&#x4E3A;2&#xFF0C;&#x5176;&#x4ED6;&#x9AD8;&#x7EA7;&#x70B9;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E3A;0
-            right = xy.right,
-            width = xy.width||right - left, //IE67&#x4E0D;&#x5B58;&#x5728;width &#x4F7F;&#x7528;right - left&#x83B7;&#x5F97;
-            height = xy.height||bottom - top;
-
-        return {
-            top:top,
-            right:right,
-            bottom:bottom,
-            left:left,
-            width:width,
-            height:height
-        }
-    }
-
-    var test = getObjXy(document.getElementById(&apos;test&apos;));
-    alert(&quot;top:&quot; + test.top + &quot;, right:&quot; + test.right + &quot;, bottom:&quot; + test.bottom + &quot;, left:&quot; + test.left);
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre><p>&#x4EE5;&#x4E0A;&#x5C31;&#x662F;&#x5E38;&#x7528;&#x7684;&#x83B7;&#x53D6;&#x9F20;&#x6807;&#x4F4D;&#x7F6E;&#x7684;&#x65B9;&#x6CD5;</p>
+var obj = {
+  a:2
+};
+var bar = function() {
+  return foo.apply( obj, arguments );
+};
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+</code></pre><p>&#x53E6;&#x4E00;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; i &#x53EF;&#x4EE5;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x7684;&#x8F85;&#x52A9;&#x51FD;&#x6570;:</p>
+<pre class="language-"><code>function foo(something) {
+  console.log( this.a, something );
+  return this.a + something;
+}
+// &#x7B80;&#x5355;&#x7684;&#x8F85;&#x52A9;&#x7ED1;&#x5B9A;&#x51FD;&#x6570;
+function bind(fn, obj) {
+  return function() {
+    return fn.apply( obj, arguments );
+  };
+}
+var obj = {
+  a:2
+};
+var bar = bind( foo, obj );
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+</code></pre><p><strong>bind</strong></p>
+<p>&#x5728;ES5&#x4E2D;&#x5185;&#x7F6E;&#x4E86;bind&#x65B9;&#x6CD5;</p>
+<pre class="language-"><code>function foo(something) {
+   console.log( this.a, something );
+   return this.a + something;
+}
+var obj = {
+  a:2
+};
+var bar = foo.bind( obj );
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+</code></pre><p>&#x8FD9;&#x91CC;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;bind&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x65B9;&#x6CD5;&#x540D;&#x8981;&#x60F3;&#x8FD0;&#x884C;&#x6837;&#x52A0;();&#x6BD4;&#x5982;foo.bind( obj )();&#x8FD9;&#x624D;&#x662F;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF1B;
+(bind(..) &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x786C;&#x7F16;&#x7801;&#x7684;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F1A;&#x628A;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A; this &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x5E76;&#x8C03;&#x7528;&#x539F;&#x59CB;&#x51FD;&#x6570;)&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#x7684;JavaScript&#x4E2D;&#x7684;&#x89E3;&#x91CA;</p>
+<ol>
+<li>API&#x8C03;&#x7528;&#x7684;&#x201C;&#x4E0A;&#x4E0B;&#x6587;&#x201D;</li>
+</ol>
+<pre class="language-"><code>function foo(el) {
+  console.log( el, this.id );
+}
+var obj = {
+  id: &quot;awesome&quot;
+};
+// &#x8C03;&#x7528; foo(..) &#x65F6;&#x628A; this &#x7ED1;&#x5B9A;&#x5230; obj
+[1, 2, 3].forEach( foo, obj );
+// 1 awesome 2 awesome 3 awesome
+</code></pre><p>&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x4E1D;&#x61F5;&#x903C;&#xFF0C;&#x770B;&#x89E3;&#x91CA;
+&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x7684;&#x8BB8;&#x591A;&#x51FD;&#x6570;&#xFF0C;&#x4EE5;&#x53CA; JavaScript &#x8BED;&#x8A00;&#x548C;&#x5BBF;&#x4E3B;&#x73AF;&#x5883;&#x4E2D;&#x8BB8;&#x591A;&#x65B0;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#xFF0C;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x4E00; &#x4E2A;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x4E0A;&#x4E0B;&#x6587;&#x201D;(context)&#xFF0C;&#x5176;&#x4F5C;&#x7528;&#x548C; bind(..) &#x4E00;&#x6837;&#xFF0C;&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x56DE;&#x8C03; &#x51FD;&#x6570;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684; this&#x3002;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x901A;&#x8FC7; call(..) &#x6216;&#x8005; apply(..) &#x5B9E;&#x73B0;&#x4E86;&#x663E;&#x5F0F;&#x7ED1;&#x5B9A;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x53EF;&#x4EE5;&#x5C11;&#x4E9B;&#x4E00;&#x4E9B; &#x4EE3;&#x7801;&#x3002;</p>
+<h3 id="new&#x7ED1;&#x5B9A;">new&#x7ED1;&#x5B9A;</h3>
+<p><strong>&#x5728; JavaScript &#x4E2D;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53EA;&#x662F;&#x4E00;&#x4E9B; &#x4F7F;&#x7528; new &#x64CD;&#x4F5C;&#x7B26;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5B83;&#x4EEC;&#x5E76;&#x4E0D;&#x4F1A;&#x5C5E;&#x4E8E;&#x67D0;&#x4E2A;&#x7C7B;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x7C7B;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C; &#x5B83;&#x4EEC;&#x751A;&#x81F3;&#x90FD;&#x4E0D;&#x80FD;&#x8BF4;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x662F;&#x88AB; new &#x64CD;&#x4F5C;&#x7B26;&#x8C03;&#x7528;&#x7684;&#x666E;&#x901A;&#x51FD;&#x6570;&#x800C;&#x5DF2;&#x3002;</strong>
+&#x4F7F;&#x7528; new &#x6765;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x53D1;&#x751F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<ol>
+<li>&#x521B;&#x5EFA;(&#x6216;&#x8005;&#x8BF4;&#x6784;&#x9020;)&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x4F1A;&#x88AB;&#x6267;&#x884C;[[&#x539F;&#x578B;]]&#x8FDE;&#x63A5;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x4F1A;&#x7ED1;&#x5B9A;&#x5230;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;this&#x3002;</li>
+<li>&#x5982;&#x679C;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x4E48;new&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4F1A;&#x81EA;&#x52A8;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x3002;
+&#x601D;&#x8003;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;:<pre class="language-"><code>function foo(a) {
+this.a = a;
+}
+var bar = new foo(2);
+console.log( bar.a ); // 2
+</code></pre>&#x4F7F;&#x7528; new &#x6765;&#x8C03;&#x7528; foo(..) &#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;&#x5E76;&#x628A;&#x5B83;&#x7ED1;&#x5B9A;&#x5230; foo(..) &#x8C03;&#x7528;&#x4E2D;&#x7684; this &#x4E0A;&#x3002;new &#x662F;&#x6700;&#x540E;&#x4E00;&#x79CD;&#x53EF;&#x4EE5;&#x5F71;&#x54CD;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6; this &#x7ED1;&#x5B9A;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A; new &#x7ED1;&#x5B9A;&#x3002;</li>
+</ol>
 
                                 
                                 </section>
@@ -1342,12 +1459,12 @@ function getCurrent(elem){
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: javaScript深入浅出">
+                <a href="error.html" class="navigation navigation-prev " aria-label="Previous page: javaScript各种错误类型">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="promise.html" class="navigation navigation-next " aria-label="Next page: promise原理解析">
+                <a href="../React/" class="navigation navigation-next " aria-label="Next page: React">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1358,7 +1475,7 @@ function getCurrent(elem){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"获取鼠标的坐标位置","level":"1.2.1","depth":2,"next":{"title":"promise原理解析","level":"1.2.2","depth":2,"path":"javaScript/promise.md","ref":"javaScript/promise.md","articles":[]},"previous":{"title":"javaScript深入浅出","level":"1.2","depth":1,"path":"javaScript/README.md","ref":"javaScript/README.md","articles":[{"title":"获取鼠标的坐标位置","level":"1.2.1","depth":2,"path":"javaScript/mouse.md","ref":"javaScript/mouse.md","articles":[]},{"title":"promise原理解析","level":"1.2.2","depth":2,"path":"javaScript/promise.md","ref":"javaScript/promise.md","articles":[]},{"title":"路由实现原理解析","level":"1.2.3","depth":2,"path":"javaScript/router.md","ref":"javaScript/router.md","articles":[]},{"title":"滚到底部加载","level":"1.2.4","depth":2,"path":"javaScript/toBottom.md","ref":"javaScript/toBottom.md","articles":[]},{"title":"原型到原型链","level":"1.2.5","depth":2,"path":"javaScript/prototype.md","ref":"javaScript/prototype.md","articles":[]},{"title":"执行上下文","level":"1.2.6","depth":2,"path":"javaScript/context.md","ref":"javaScript/context.md","articles":[]},{"title":"你不知道的js（上）","level":"1.2.7","depth":2,"path":"javaScript/youDontKnowJs.md","ref":"javaScript/youDontKnowJs.md","articles":[]},{"title":"柯里化函数","level":"1.2.8","depth":2,"path":"javaScript/Currying.md","ref":"javaScript/Currying.md","articles":[]},{"title":"变量提升与函数提升","level":"1.2.9","depth":2,"path":"javaScript/ascension.md","ref":"javaScript/ascension.md","articles":[]},{"title":"webSocket","level":"1.2.10","depth":2,"path":"javaScript/webSocket.md","ref":"javaScript/webSocket.md","articles":[]},{"title":"javaScript各种错误类型","level":"1.2.11","depth":2,"path":"javaScript/error.md","ref":"javaScript/error.md","articles":[]},{"title":"javaScript的this","level":"1.2.12","depth":2,"path":"javaScript/this.md","ref":"javaScript/this.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap","splitter","toggle-chapters","sectionx","-search","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"gitbook"},"github":{"url":"https://github.com/yihaoliu"},"editlink":{"label":"编辑本页","multilingual":false,"base":""},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook学习笔记","language":"zh-hans","gitbook":"*","description":"用于前端知识点总结。"},"file":{"path":"javaScript/mouse.md","mtime":"2017-05-18T15:28:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-11T12:07:29.338Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"javaScript的this","level":"1.2.12","depth":2,"next":{"title":"React","level":"1.3","depth":1,"path":"React/README.md","ref":"React/README.md","articles":[{"title":"webpack项目搭建","level":"1.3.1","depth":2,"path":"React/webpack.md","ref":"React/webpack.md","articles":[]},{"title":"React项目的搭建","level":"1.3.2","depth":2,"path":"React/react.md","ref":"React/react.md","articles":[]},{"title":"React-Router使用入门","level":"1.3.3","depth":2,"path":"React/router.md","ref":"React/router.md","articles":[]},{"title":"Redux使用入门","level":"1.3.4","depth":2,"path":"React/redux.md","ref":"React/redux.md","articles":[]},{"title":"Mobx使用入门","level":"1.3.5","depth":2,"path":"React/mobx.md","ref":"React/mobx.md","articles":[]},{"title":"React生命周期","level":"1.3.6","depth":2,"path":"React/lifecyce.md","ref":"React/lifecyce.md","articles":[]}]},"previous":{"title":"javaScript各种错误类型","level":"1.2.11","depth":2,"path":"javaScript/error.md","ref":"javaScript/error.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","editlink","prism","-highlight","baidu","splitter","sitemap","splitter","toggle-chapters","sectionx","-search","search-pro","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"gitbook"},"github":{"url":"https://github.com/yihaoliu"},"editlink":{"label":"编辑本页","multilingual":false,"base":""},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"sitemap":{"hostname":"http://zhaoda.net/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook学习笔记","language":"zh-hans","gitbook":"*","description":"用于前端知识点总结。"},"file":{"path":"javaScript/this.md","mtime":"2017-06-11T12:13:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-11T12:07:29.338Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
