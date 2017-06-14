@@ -4,9 +4,32 @@
 2.隐式绑定
 3.显示绑定
 4.new绑定
->在弄清楚这些绑定之前来弄清楚几个概念调用栈和调用位置
 
+>判断this 现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。可以按照下面的顺序来进行判断:
+1. 函数是否在new中调用(new绑定)?如果是的话this绑定的是新创建的对象。
+     var bar = new foo()
+2. 函数是否通过call、apply(显式绑定)或者硬绑定调用?如果是的话，this绑定的是 指定的对象。
+     var bar = foo.call(obj2)
+3. 函数是否在某个上下文对象中调用(隐式绑定)?如果是的话，this 绑定的是那个上 下文对象。
+     var bar = obj1.foo()
+4. 如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到undefined，否则绑定到 全局对象。
+     var bar = foo()
+
+关于call、apply、bind的区别：
+
+|函数|参数|返回|
+
+|:-----:|:-----:|:-----:|
+
+|call|第一个参数是context,后边可传多个参数|立即调用|
+
+|apply|第一个参数是context,后边是一个数组|立即调用|
+
+|bind|第一个参数是context,后边可传多个参数|返回对应函数|
+
+在弄清楚这些绑定之前来弄清楚几个概念调用栈和调用位置
 下面我们来看看到底什么是调用栈和调用位置:
+
 ```
 function baz() {
 // 当前调用栈是:baz
@@ -231,3 +254,222 @@ var bar = new foo(2);
 console.log( bar.a ); // 2
 ```
 使用 new 来调用 foo(..) 时，我们会构造一个新对象并把它绑定到 foo(..) 调用中的 this 上。new 是最后一种可以影响函数调用时 this 绑定行为的方法，我们称之为 new 绑定。
+###优先级
+1.先比较一下隐式绑定和显示绑定
+
+看下面代码
+
+```
+function foo() {
+  console.log( this.a );
+}
+var obj1 = {
+  a: 2,
+  foo: foo
+};
+var obj2 = {
+  a: 3,
+  foo: foo
+};
+obj1.foo(); // 2
+obj2.foo(); // 3
+
+obj1.foo.call( obj2 ); // 3
+obj2.foo.call( obj1 ); // 2
+```
+可以明显的看到显示绑定比隐式绑定的优先级高
+
+2.现在比较一下new 绑定和隐式绑定
+看如下代码
+```
+function foo(something) {
+  this.a = something;
+}
+var obj1 = {
+  foo: foo
+};
+var obj2 = {};
+obj1.foo( 2 );
+console.log( obj1.a ); // 2
+obj1.foo.call( obj2, 3 );
+console.log( obj2.a ); // 3
+var bar = new obj1.foo( 4 );
+console.log( obj1.a ); // 2
+console.log( bar.a ); // 4
+```
+可以看到 new 绑定比隐式绑定优先级高
+3.new 绑定和显式绑定
+在看代码之前先回忆一下硬绑定是如何工作的。Function.prototype.bind(..) 会创建一个 新的包装函数，这个函数会忽略它当前的 this 绑定(无论绑定的对象是什么)，并把我们 提供的对象绑定到 this 上。
+看下面的代码
+```
+function foo(something) { this.a = something;
+}
+var obj1 = {};
+var bar = foo.bind( obj1 );
+bar( 2 );
+console.log( obj1.a ); // 2
+var baz = new bar(3);
+console.log( obj1.a ); // 2
+console.log( baz.a ); // 3
+```
+出乎意料! bar 被硬绑定到 obj1 上，但是 new
+修改为 3。相反，new 修改了硬绑定(到 obj1 的)调用 bar(..) 中的 this。因为使用了 new 绑定，我们得到了一个名字为 baz 的新对象，并且 baz.a 的值是 3。
+ES5 中内置的 Function.prototype.bind(..) 更加复杂。下面是 MDN 提供的一种
+bind(..) 实现
+```
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function(oThis) {
+      if (typeof this !== "function") {
+        // 与 ECMAScript 5 最接近的
+        // 内部 IsCallable 函数
+          throw new TypeError("Function.prototype.bind - what is trying " +"to be bound is not callable");
+      }
+      var aArgs = Array.prototype.slice.call( arguments, 1 ),
+          fToBind = this,
+          fNOP = function(){},
+          fBound = function(){
+            return fToBind.apply(
+              (
+                this instanceof fNOP &&
+                oThis ? this : oThis
+              ),
+             aArgs.concat(
+               Array.prototype.slice.call( arguments )
+             );
+          };
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+      return fBound;
+  };
+}
+```
+>这种 bind(..) 是一种 polyfill 代码(polyfill 就是我们常说的刮墙用的腻 子，polyfill 代码主要用于旧浏览器的兼容，比如说在旧的浏览器中并没 有内置 bind 函数，因此可以使用 polyfill 代码在旧浏览器中实现新的功 能)，对于 new 使用的硬绑定函数来说，这段 polyfill 代码和 ES5 内置的 bind(..) 函数并不完全相同(后面会介绍为什么要在 new 中使用硬绑定函 数)。由于 polyfill 并不是内置函数，所以无法创建一个不包含 .prototype 的函数，因此会具有一些副作用。如果你要在 new 中使用硬绑定函数并且依 赖 polyfill 代码的话，一定要非常小心。
+
+###绑定例外
+####1.把 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind
+看下面代码
+```
+function foo() {
+  console.log( this.a );
+}
+var a = 2;
+foo.call( null ); // 2
+```
+应用场景
+使用 apply(..) 来“展开”一个数组
+```
+function foo(a,b) {
+  console.log( "a:" + a + ", b:" + b );
+}
+// 把数组“展开”成参数
+foo.apply( null, [2, 3] ); // a:2, b:3
+// 使用 bind(..) 进行柯里化
+var bar = foo.bind( null, 2 );
+bar( 3 ); // a:2, b:3
+```
+####2.间接引用
+另一个需要注意的是，你有可能(有意或者无意地)创建一个函数的“间接引用”，在这 种情况下，调用这个函数会应用默认绑定规则。
+
+间接引用最容易在赋值时发生:
+```
+function foo() {
+  console.log( this.a );
+}
+var a = 2;
+var o = {
+          a: 3,
+          foo: foo
+        };
+var p = { a: 4 };
+o.foo(); // 3
+(p.foo = o.foo)(); // 2
+```
+赋值表达式 p.foo = o.foo 的返回值是目标函数的引用，因此调用位置是 foo() 而不是 p.foo() 或者 o.foo()。根据我们之前说过的，这里会应用默认绑定。
+注意:对于默认绑定来说，决定 this 绑定对象的并不是调用位置是否处于严格模式，而是 函数体是否处于严格模式。如果函数体处于严格模式，this 会被绑定到 undefined，否则 this 会被绑定到全局对象。
+
+####3.软绑定
+之前我们已经看到过，硬绑定这种方式可以把 this 强制绑定到指定的对象(除了使用 new 时)，防止函数调用应用默认绑定规则。问题在于，硬绑定会大大降低函数的灵活性，使 用硬绑定之后就无法使用隐式绑定或者显式绑定来修改 this。
+如果可以给默认绑定指定一个全局对象和 undefined 以外的值，那就可以实现和硬绑定相 同的效果，同时保留隐式绑定或者显式绑定修改 this 的能力。
+可以通过一种被称为软绑定的方法来实现我们想要的效果:
+```
+if (!Function.prototype.softBind) {
+  Function.prototype.softBind = function(obj) {
+      var fn = this;
+      // 捕获所有 curried 参数
+      var curried = [].slice.call( arguments, 1 );
+      var bound = function() {
+          return fn.apply(
+          (!this || this === (window || global)) ? obj : this;
+          curried.concat.apply( curried, arguments );
+      };
+      bound.prototype = Object.create( fn.prototype );
+      return bound;
+  };
+}
+除了软绑定之外，softBind(..) 的其他原理和 ES5 内置的 bind(..) 类似。它会对指定的函 数进行封装，首先检查调用时的 this，如果 this 绑定到全局对象或者 undefined，那就把 指定的默认对象 obj 绑定到 this，否则不会修改 this。此外，这段代码还支持可选的柯里化
+```
+下面我们看看 softBind 是否实现了软绑定功能:
+```
+function foo() {
+  console.log("name: " + this.name);
+}
+var obj = { name: "obj" },
+    obj2 = { name: "obj2" },
+    obj3 = { name: "obj3" };
+var fooOBJ = foo.softBind( obj );
+    fooOBJ(); // name: obj
+    obj2.foo = foo.softBind(obj);
+    obj2.foo(); // name: obj2 <---- 看!!!
+    fooOBJ.call( obj3 ); // name: obj3 <---- 看!
+    setTimeout( obj2.foo, 10 );
+    // name: obj <---- 应用了软绑定
+```
+可以看到，软绑定版本的 foo() 可以手动将 this 绑定到 obj2 或者 obj3 上，但如果应用默
+认绑定，则会将 this 绑定到 obj。
+###this词法
+**（箭头函数没有执行上下为this指向父级）箭头函数不使用 this 的四种标准规则，而是根据外层(函数或者全局)作用域来决定 this**
+看下面的代码
+```
+function foo() {
+// 返回一个箭头函数
+  return (a) => {
+  //this 继承自 foo()
+    console.log( this.a );
+  };
+}
+var obj1 = {
+  a:2
+};
+var obj2 = {
+  a:3
+};
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, 不是 3 !
+```
+箭头函数最常用于回调函数中，例如事件处理器或者定时器:
+```
+function foo() {
+  setTimeout(() => {
+    // 这里的 this 在此法上继承自 foo()
+    console.log( this.a );
+  },100);
+}
+var obj = {
+      a:2
+     };
+foo.call( obj ); // 2
+
+```
+上面代码不用箭头函数的写法
+```
+function foo() {
+var self = this; // lexical capture of this
+  setTimeout( function(){
+     console.log( self.a );
+  }, 100 );
+}
+var obj = {
+  a: 2
+};
+foo.call( obj ); // 2
+```
